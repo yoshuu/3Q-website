@@ -1,6 +1,9 @@
 <script setup>
 import { GET } from "@/api/api.js";
-const respond = await GET("?maxRecords=100&view=Grid%20view");
+const respond = await GET(
+  "/%E6%B3%95%E5%BE%8B%E4%B8%BB%E6%8F%90%E6%A1%88?maxRecords=100&view=Grid%20view"
+);
+
 const data = respond.data.records;
 </script>
 <template>

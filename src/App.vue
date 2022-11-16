@@ -5,7 +5,9 @@ import Title from "./components/Title.vue";
 
 <template>
   <h1>佳憲測試中</h1>
-  <Title></Title>
+  <Suspense>
+    <Title></Title>
+  </Suspense>
 </template>
 
 <style scoped lang="scss">
