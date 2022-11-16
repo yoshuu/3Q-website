@@ -9,7 +9,9 @@ import Front_footer from "./components/Front_footer.vue";
     <Front_header />
   </header>
   <main>
-    <Front_main />
+    <Suspense>
+      <Front_main />
+    </Suspense>
   </main>
   <footer>
     <Front_footer />
