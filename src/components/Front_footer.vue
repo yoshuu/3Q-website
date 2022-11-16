@@ -81,7 +81,7 @@
 </template>
 <style scoped lang="scss">
 .footer_container {
-  //   position: relative;
+  position: relative;
   padding: 30px 16px 45px;
   font-size: 17px;
   @include breakpoint($xxl) {
