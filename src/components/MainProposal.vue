@@ -1,46 +1,22 @@
-<script setup></script>
+<script setup>
+import { GET } from "@/api/api.js";
+const respond = await GET("?maxRecords=100&view=Grid%20view");
+const data = respond.data.records;
+</script>
 <template>
   <div class="main-proposal">
-    <div class="proposal_result_content">
+    <div class="proposal_result_content" v-for="item in data" :key="item.id">
       <div class="BaseInfo">
         <p class="case_name">
-          1.臺灣地區與大陸地區人民關係條例第十八條條文修正草案
+          {{ item.fields.提案名稱 }}
         </p>
         <div class="case_info">
-          <span> 提案日期：2021/5/31 </span>
+          <span> 提案日期：{{ item.fields.提案日期 }} </span>
         </div>
       </div>
       <div class="case_content">
         <p class="case_subtitle">內容關鍵字:</p>
-        <p>制裁中國人權侵害者或單位</p>
-      </div>
-    </div>
-    <div class="proposal_result_content">
-      <div class="BaseInfo">
-        <p class="case_name">
-          1.臺灣地區與大陸地區人民關係條例第十八條條文修正草案
-        </p>
-        <div class="case_info">
-          <span> 提案日期：2021/5/31 </span>
-        </div>
-      </div>
-      <div class="case_content">
-        <p class="case_subtitle">內容關鍵字:</p>
-        <p>制裁中國人權侵害者或單位</p>
-      </div>
-    </div>
-    <div class="proposal_result_content">
-      <div class="BaseInfo">
-        <p class="case_name">
-          1.臺灣地區與大陸地區人民關係條例第十八條條文修正草案
-        </p>
-        <div class="case_info">
-          <span> 提案日期：2021/5/31 </span>
-        </div>
-      </div>
-      <div class="case_content">
-        <p class="case_subtitle">內容關鍵字:</p>
-        <p>制裁中國人權侵害者或單位</p>
+        <p>{{ item.fields.內容關鍵字 }}</p>
       </div>
     </div>
   </div>
