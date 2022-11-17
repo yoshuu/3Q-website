@@ -1,7 +1,24 @@
-<script setup></script>
+<script setup>
+import { GET } from "@/api/api.js";
+import Title from "./Title.vue";
+import Modal from "./Modal.vue";
+
+const respond = await GET(
+  "/%E5%90%84%E8%B3%87%E6%96%99%E6%95%B8%E9%87%8F?maxRecords=100&view=Grid%20view"
+);
+const data = respond.data.records;
+const data1 = data[0].fields.資料數量;
+const data2 = data[13].fields.資料數量;
+</script>
 <template>
+  <Title />
+  <Modal />
   <div class="card_container">
-    <div>
+    <div
+      class="test1"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModalFullscreen"
+    >
       <div>
         <div>
           <p>12</p>
@@ -53,9 +70,13 @@
         <!-- <i class="fa-solid fa-arrow-right"></i> -->
       </div>
     </div>
-    <div>
+    <div
+      class="test2"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModalFullscreen2"
+    >
       <div>
-        <p>2273</p>
+        <p>{{ data1 }}</p>
         <h2>陳情案件</h2>
       </div>
       <div class="details">
@@ -87,9 +108,13 @@
         <!-- <i class="fa-solid fa-arrow-right"></i> -->
       </div>
     </div>
-    <div>
+    <div
+      class="test3"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModalFullscreen2"
+    >
       <div>
-        <p>104</p>
+        <p>{{ data2 }}</p>
         <h2>會勘及地方建設</h2>
       </div>
       <div class="details">
@@ -121,7 +146,11 @@
         <!-- <i class="fa-solid fa-arrow-right"></i> -->
       </div>
     </div>
-    <div>
+    <div
+      class="test4"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModalFullscreen2"
+    >
       <div>
         <p>13</p>
         <h2>主辦記者會</h2>
@@ -155,7 +184,11 @@
         <!-- <i class="fa-solid fa-arrow-right"></i> -->
       </div>
     </div>
-    <div>
+    <div
+      class="test5"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModalFullscreen2"
+    >
       <div>
         <p>79</p>
         <h2>社會及公益活動</h2>
@@ -220,8 +253,9 @@
     grid-template-rows: 436px 191px 19px 230px;
   }
   @include breakpoint($xxl) {
-    grid-template-columns: 25.9vw 15.2vw 9.3vw 25.9vw;
-    gap: 1.4%;
+    display: grid;
+    grid-template-rows: 436px 20px 210px 20px 20px 230px;
+    // grid-template-columns: 373px 20px 215.6px 157.4px 20px 373px;
   }
   > div:nth-child(n) {
     position: relative;
@@ -377,6 +411,7 @@
   text-align: center;
   font-weight: 900;
   color: white;
+  margin-top: 1.5rem;
   background-color: $primary;
   @include breakpoint($xl) {
     padding: 35px 0 49px;

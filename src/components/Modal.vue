@@ -11,7 +11,7 @@ import side_navVue from "./side_nav.vue";
   <!-- Modal -->
   <div
     class="modal fade"
-    id="exampleModalFullscreen"
+    id="exampleModalFullscreen2"
     tabindex="-1"
     aria-labelledby="exampleModalFullscreenLabel"
     aria-hidden="true"
@@ -20,7 +20,7 @@ import side_navVue from "./side_nav.vue";
     <div class="modal-dialog modal-fullscreen">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title" id="exampleModalFullscreen">立院成果</h4>
+          <h4 class="modal-title" id="exampleModalFullscreen">TEXT</h4>
           <button
             type="button"
             class="btn-close"
@@ -29,7 +29,41 @@ import side_navVue from "./side_nav.vue";
           ></button>
         </div>
         <div class="modal-body p-0">
-          <side_navVue />
+          <div class="Side_nav_box">
+            <nav class="navbar-expand-lg side_nav">
+              <div class="side_nav-active">
+                <a
+                  href="##"
+                  :class="['first', { active: currentTab === MainProposal }]"
+                  @click="currentTab = MainProposal"
+                  ><span>Test</span><span>Test</span>
+                </a>
+                <button
+                  class="navbar-toggler"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#navbarText"
+                  aria-controls="navbarText"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
+                  <i class="fa-solid fa-caret-down"></i>
+                </button>
+              </div>
+              <div class="collapse" id="navbarText">
+                <a
+                  href="##"
+                  :class="{ active: currentTab === JointProposal }"
+                  @click="currentTab = JointProposal"
+                  ><span>test</span><span>81</span>
+                </a>
+                <a href="##"><span>test</span><span>test</span> </a>
+                <a href="##"><span>test</span><span>test</span> </a>
+                <a href="##"><span>test</span><span>test</span> </a>
+              </div>
+            </nav>
+            <component :is="currentTab"></component>
+          </div>
         </div>
       </div>
     </div>
