@@ -8,9 +8,14 @@ const data = respond.data.records;
 </script>
 <template>
   <div class="main-proposal">
-    <div class="proposal_result_content" v-for="item in data" :key="item.id">
+    <div
+      class="proposal_result_content"
+      v-for="(item, apple) in data"
+      :key="item.id"
+    >
       <div class="BaseInfo">
         <p class="case_name">
+          {{ apple + 1 }}
           {{ item.fields.提案名稱 }}
         </p>
         <div class="case_info">

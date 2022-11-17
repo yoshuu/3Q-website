@@ -3,10 +3,18 @@ import MainProposal from "./ProposalResult/MainProposal.vue";
 import JointProposal from "./ProposalResult/JointProposal.vue";
 import OralQuestioning from "./ProposalResult/OralQuestioning.vue";
 import OtherSpeeches from "./ProposalResult/OtherSpeeches.vue";
-import WrittenInquiry from "./ProposalResult/WrittenInquiry.vue";
+import OralInterpellation from "./ProposalResult/OralInterpellation.vue";
 import { ref } from "vue";
 
 const currentTab = ref("MainProposal");
+
+const tabs = {
+  MainProposal,
+  JointProposal,
+  OralQuestioning,
+  OtherSpeeches,
+  OralInterpellation,
+};
 </script>
 
 <template>
@@ -15,8 +23,8 @@ const currentTab = ref("MainProposal");
       <div class="side_nav-active">
         <a
           href="##"
-          :class="['tab-button', { active: currentTab === MainProposal }]"
-          @click="currentTab = MainProposal"
+          :class="{ active: currentTab === 'MainProposal' }"
+          @click="currentTab = 'MainProposal'"
           ><span>法律主提案</span><span>12</span>
         </a>
         <button
@@ -34,31 +42,33 @@ const currentTab = ref("MainProposal");
       <div class="collapse" id="navbarText">
         <a
           href="##"
-          :class="['tab-button', { active: currentTab === JointProposal }]"
-          @click="currentTab = JointProposal"
+          :class="{ active: currentTab === 'JointProposal' }"
+          @click="currentTab = 'JointProposal'"
           ><span>法律共同提案</span><span>81</span>
         </a>
         <a
           href="##"
-          :class="['tab-button', { active: currentTab === WrittenInquiry }]"
-          @click="currentTab = WrittenInquiry"
+          :class="{ active: currentTab === 'OralInterpellation' }"
+          @click="currentTab = 'OralInterpellation'"
           ><span>書面質詢</span><span>91</span>
         </a>
         <a
           href="##"
-          :class="['tab-button', { active: currentTab === OralQuestioning }]"
-          @click="currentTab = OralQuestioning"
+          :class="{ active: currentTab === 'OralQuestioning' }"
+          @click="currentTab = 'OralQuestioning'"
           ><span>口頭質詢</span><span>91</span>
         </a>
         <a
           href="##"
-          :class="['tab-button', { active: currentTab === OtherSpeeches }]"
-          @click="currentTab = OtherSpeeches"
+          :class="[{ active: currentTab === 'OtherSpeeches' }]"
+          @click="currentTab = 'OtherSpeeches'"
           ><span>其他國會語言</span><span>91</span>
         </a>
       </div>
     </nav>
-    <component :is="currentTab"></component>
+    <Suspense>
+      <component :is="tabs[currentTab]"></component>
+    </Suspense>
   </div>
 </template>
 <style lang="scss" scoped>
@@ -120,7 +130,7 @@ const currentTab = ref("MainProposal");
   }
 }
 
-.apple {
+.side_nav .active {
   color: $primary;
   background: white;
 }
