@@ -29,7 +29,7 @@
   position: relative;
   min-width: 375px;
   background: url(../../src/assets/images/logo.png) no-repeat -130px -97px;
-  @include breakpoint($md) {
+  @include breakpoint($xl) {
     background: url(../../src/assets/images/logo.png) no-repeat -104px -155px;
     background-size: 488px 488px;
   }
@@ -39,16 +39,17 @@
   flex-direction: column;
   align-items: center;
   padding-top: 51px;
-  @include breakpoint($md) {
+  @include breakpoint($xl) {
     align-items: flex-start;
-    padding-bottom: 40px;
-    padding-left: 88px;
-  }
-  @include breakpoint($lg) {
     padding: 72px 140px 40px;
+    padding-bottom: 40px;
   }
+
   > div {
-    @include breakpoint($md) {
+    display: flex;
+    flex-direction: column;
+    @include breakpoint($xl) {
+      flex-direction: row;
       gap: 30px;
     }
   }
@@ -67,16 +68,14 @@ h1 {
   margin: -22px auto 0;
   min-width: 360px;
   width: 50vw;
-  @include breakpoint($md) {
+  @include breakpoint($xl) {
     position: absolute;
     z-index: 1;
     max-width: 681.74px;
-    top: 280px;
-    right: 50px;
   }
-  @include breakpoint($xxl) {
-    top: 83.74px;
-    right: 50.27px;
+  @include breakpoint($xl) {
+    top: 57px;
+    right: 7.73px;
   }
   img {
     width: 100%;
@@ -89,11 +88,12 @@ h1 {
   position: absolute;
   display: flex;
   flex-direction: column;
+  text-align: center;
   bottom: 145px;
   width: 100%;
   gap: 8px;
 
-  @include breakpoint($md) {
+  @include breakpoint($xl) {
     flex-direction: row;
     width: unset;
     gap: 16px;
@@ -112,7 +112,7 @@ h1 {
 
 .data_prove {
   display: none;
-  @include breakpoint($lg) {
+  @include breakpoint($xl) {
     display: block;
     position: absolute;
     top: 204px;
