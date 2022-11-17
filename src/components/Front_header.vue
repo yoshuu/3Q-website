@@ -2,7 +2,7 @@
 <template>
   <div class="header_container">
     <div class="slogan_container">
-      <div>
+      <div class="aaa">
         <p>會說話</p>
         <p>會做事</p>
       </div>
@@ -117,6 +117,13 @@ h1 {
     position: absolute;
     top: 204px;
     left: 408px;
+  }
+}
+
+.aaa {
+  @include breakpoint($lg) {
+    display: flex;
+    font-size: 100px;
   }
 }
 </style>
