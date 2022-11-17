@@ -2,6 +2,7 @@
 import { GET } from "@/api/api.js";
 import Title from "./Title.vue";
 import Modal from "./Modal.vue";
+import PetitionCase from "./PetitionCase.vue";
 
 const respond = await GET(
   "/%E5%90%84%E8%B3%87%E6%96%99%E6%95%B8%E9%87%8F?maxRecords=100&view=Grid%20view"
@@ -13,6 +14,7 @@ const data2 = data[13].fields.資料數量;
 <template>
   <Title />
   <Modal />
+  <PetitionCase />
   <div class="card_container">
     <div
       class="test1"
@@ -73,7 +75,7 @@ const data2 = data[13].fields.資料數量;
     <div
       class="test2"
       data-bs-toggle="modal"
-      data-bs-target="#exampleModalFullscreen2"
+      data-bs-target="#exampleModalFullscreen3"
     >
       <div>
         <p>{{ data1 }}</p>
