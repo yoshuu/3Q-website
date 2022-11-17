@@ -81,10 +81,9 @@
 </template>
 <style scoped lang="scss">
 .footer_container {
-  position: relative;
   padding: 30px 16px 45px;
   font-size: 17px;
-  @include breakpoint($xxl) {
+  @include breakpoint($xl) {
     padding: 48px 50px 50px 556px;
   }
 }
@@ -95,6 +94,7 @@
 .community_list {
   display: flex;
   gap: 36px;
+  color: $primary;
 }
 .community_add,
 .community_share {
@@ -106,11 +106,14 @@
 .footer_people {
   display: none;
   width: 442px;
-  @include breakpoint($xxl) {
+  @include breakpoint($xl) {
     display: block;
     position: absolute;
-    left: 32px;
+    left: -20px;
     bottom: -78px;
+  }
+  @include breakpoint($xxl) {
+    left: 32px;
   }
 
   img {
