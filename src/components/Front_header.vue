@@ -66,15 +66,13 @@ h1 {
 
 .people_info {
   margin: -22px auto 0;
-  min-width: 360px;
-  width: 50vw;
+  max-width: 360px;
+  min-height: 550px;
   @include breakpoint($xl) {
     position: absolute;
     z-index: 1;
-    max-width: 681.74px;
-  }
-  @include breakpoint($xl) {
-    top: 57px;
+    max-width: 766.08px;
+    top: 150px;
     right: 7.73px;
   }
   img {

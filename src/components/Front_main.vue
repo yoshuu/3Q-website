@@ -69,6 +69,33 @@ const data2 = data[13].fields.資料數量;
         </svg>
         <!-- <i class="fa-solid fa-arrow-right"></i> -->
       </div>
+      <div class="details_hover">
+        <p>詳細內容</p>
+        <svg
+          width="36"
+          height="36"
+          viewBox="0 0 36 36"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class=""
+        >
+          <circle
+            cx="18"
+            cy="18"
+            r="17"
+            transform="rotate(-90 18 18)"
+            stroke="#FFF"
+            stroke-width="2"
+          ></circle>
+          <path
+            d="M9.5 18h16.25M21 23l5-5-5-5"
+            stroke="#FFF"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+        </svg>
+      </div>
     </div>
     <div
       class="test2"
@@ -105,7 +132,33 @@ const data2 = data[13].fields.資料數量;
             stroke-linejoin="round"
           ></path>
         </svg>
-        <!-- <i class="fa-solid fa-arrow-right"></i> -->
+      </div>
+      <div class="details_hover">
+        <p>詳細內容</p>
+        <svg
+          width="36"
+          height="36"
+          viewBox="0 0 36 36"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class=""
+        >
+          <circle
+            cx="18"
+            cy="18"
+            r="17"
+            transform="rotate(-90 18 18)"
+            stroke="#FFF"
+            stroke-width="2"
+          ></circle>
+          <path
+            d="M9.5 18h16.25M21 23l5-5-5-5"
+            stroke="#FFF"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+        </svg>
       </div>
     </div>
     <div
@@ -145,6 +198,33 @@ const data2 = data[13].fields.資料數量;
         </svg>
         <!-- <i class="fa-solid fa-arrow-right"></i> -->
       </div>
+      <div class="details_hover">
+        <p>詳細內容</p>
+        <svg
+          width="36"
+          height="36"
+          viewBox="0 0 36 36"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class=""
+        >
+          <circle
+            cx="18"
+            cy="18"
+            r="17"
+            transform="rotate(-90 18 18)"
+            stroke="#FFF"
+            stroke-width="2"
+          ></circle>
+          <path
+            d="M9.5 18h16.25M21 23l5-5-5-5"
+            stroke="#FFF"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+        </svg>
+      </div>
     </div>
     <div
       class="test4"
@@ -182,6 +262,33 @@ const data2 = data[13].fields.資料數量;
           ></path>
         </svg>
         <!-- <i class="fa-solid fa-arrow-right"></i> -->
+      </div>
+      <div class="details_hover">
+        <p>詳細內容</p>
+        <svg
+          width="36"
+          height="36"
+          viewBox="0 0 36 36"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class=""
+        >
+          <circle
+            cx="18"
+            cy="18"
+            r="17"
+            transform="rotate(-90 18 18)"
+            stroke="#FFF"
+            stroke-width="2"
+          ></circle>
+          <path
+            d="M9.5 18h16.25M21 23l5-5-5-5"
+            stroke="#FFF"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+        </svg>
       </div>
     </div>
     <div
@@ -221,6 +328,33 @@ const data2 = data[13].fields.資料數量;
         </svg>
         <!-- <i class="fa-solid fa-arrow-right"></i> -->
       </div>
+      <div class="details_hover">
+        <p>詳細內容</p>
+        <svg
+          width="36"
+          height="36"
+          viewBox="0 0 36 36"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class=""
+        >
+          <circle
+            cx="18"
+            cy="18"
+            r="17"
+            transform="rotate(-90 18 18)"
+            stroke="#FFF"
+            stroke-width="2"
+          ></circle>
+          <path
+            d="M9.5 18h16.25M21 23l5-5-5-5"
+            stroke="#FFF"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+        </svg>
+      </div>
     </div>
   </div>
   <div class="main_slogan_container">
@@ -244,7 +378,6 @@ const data2 = data[13].fields.資料數量;
   font-weight: 900;
   @include breakpoint($xl) {
     margin-top: unset;
-    padding: 0 88px 60px;
     padding: 0 140px 60px;
     display: grid;
     justify-content: center;
@@ -253,27 +386,36 @@ const data2 = data[13].fields.資料數量;
     grid-template-rows: 436px 191px 19px 230px;
   }
   @include breakpoint($xxl) {
-    display: grid;
-    grid-template-rows: 436px 20px 210px 20px 20px 230px;
-    // grid-template-columns: 373px 20px 215.6px 157.4px 20px 373px;
+    grid-template-columns: 25.9vw 15.2vw 9.3vw 25.9vw;
+    gap: 2vw;
   }
   > div:nth-child(n) {
     position: relative;
     margin: 0 16px 16px;
     padding: 16px 16px;
     min-height: 205px;
-    &:hover {
+    .details_hover {
       svg {
-        transform: rotate(90deg);
-        transition-duration: 2s;
-        transition-property: transform;
+        transform: rotate(-90deg);
+        opacity: 0;
         circle,
         path {
           stroke: white;
         }
       }
+    }
+    &:hover {
       color: white;
       background: $primary;
+      .details svg {
+        opacity: 0;
+      }
+      .details_hover svg {
+        opacity: 1;
+        transform: rotate(0deg);
+        transition-duration: 1s;
+        transition-property: transform;
+      }
     }
     @include breakpoint($xl) {
       padding: 24px 30px;
@@ -295,14 +437,15 @@ const data2 = data[13].fields.資料數量;
       line-height: 80px;
     }
   }
-  .details {
+  .details,
+  .details_hover {
     position: absolute;
     display: flex;
     align-items: center;
+    gap: 16px;
     bottom: 16px;
     right: 16px;
     @include breakpoint($xl) {
-      bottom: 30px;
       right: 30px;
     }
     p {
@@ -312,7 +455,6 @@ const data2 = data[13].fields.資料數量;
       }
     }
     svg {
-      margin-left: 16px;
       circle,
       path {
         stroke: $primary;
@@ -384,11 +526,10 @@ const data2 = data[13].fields.資料數量;
       text-align: center;
     }
   }
-  .details {
-    @include breakpoint($xl) {
-      justify-content: center;
-      position: unset;
-    }
+  .details,
+  .details_hover {
+    right: 50%;
+    transform: translateX(50%);
   }
 }
 .card_container > div:nth-child(5) {
@@ -411,7 +552,6 @@ const data2 = data[13].fields.資料數量;
   text-align: center;
   font-weight: 900;
   color: white;
-  margin-top: 1.5rem;
   background-color: $primary;
   @include breakpoint($xl) {
     padding: 35px 0 49px;

@@ -81,6 +81,7 @@
 </template>
 <style scoped lang="scss">
 .footer_container {
+  position: relative;
   padding: 30px 16px 45px;
   font-size: 17px;
   @include breakpoint($xl) {
@@ -110,12 +111,11 @@
     display: block;
     position: absolute;
     left: -20px;
-    bottom: -78px;
+    bottom: 0;
   }
   @include breakpoint($xxl) {
     left: 32px;
   }
-
   img {
     width: 100%;
   }
