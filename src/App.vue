@@ -5,17 +5,24 @@ import Front_footer from "./components/Front_footer.vue";
 </script>
 
 <template>
-  <header>
-    <Front_header />
-  </header>
-  <main>
-    <Suspense>
-      <Front_main />
-    </Suspense>
-  </main>
-  <footer>
-    <Front_footer />
-  </footer>
+  <Suspense>
+    <div class="front">
+      <header>
+        <Front_header />
+      </header>
+      <main>
+        <Front_main />
+      </main>
+      <footer>
+        <Front_footer />
+      </footer>
+    </div>
+  </Suspense>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.front {
+  position: relative;
+  overflow: hidden;
+}
+</style>

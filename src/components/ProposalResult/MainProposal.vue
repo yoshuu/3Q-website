@@ -1,15 +1,13 @@
 <script setup>
 import { GET } from "@/api/api.js";
-
 const respond = await GET(
-  "/%E6%B3%95%E5%BE%8B%E5%85%B1%E5%90%8C%E6%8F%90%E6%A1%88?maxRecords=100&view=Grid%20view"
+  "/%E6%B3%95%E5%BE%8B%E4%B8%BB%E6%8F%90%E6%A1%88?maxRecords=100&view=Grid%20view"
 );
-const data = respond.data.records;
 
-console.log(data);
+const data = respond.data.records;
 </script>
 <template>
-  <div class="JointProposal">
+  <div class="main-proposal">
     <div class="proposal_result_content" v-for="item in data" :key="item.id">
       <div class="BaseInfo">
         <p class="case_name">
@@ -27,13 +25,14 @@ console.log(data);
   </div>
 </template>
 <style scoped lang="scss">
-.JointProposal {
+.main-proposal {
+  overflow: auto;
   @include breakpoint($lg) {
     width: 100%;
   }
 }
 
-.side_nav {
+.navbar-expand-lg .side_nav {
   @include breakpoint($lg) {
     width: 30%;
   }
