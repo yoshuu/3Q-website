@@ -1,5 +1,7 @@
 <script setup>
 import { GET } from "@/api/api.js";
+import Title from "./Title.vue";
+import Modal from "./Modal.vue";
 
 const respond = await GET(
   "/%E5%90%84%E8%B3%87%E6%96%99%E6%95%B8%E9%87%8F?maxRecords=100&view=Grid%20view"
@@ -9,8 +11,14 @@ const data1 = data[0].fields.資料數量;
 const data2 = data[13].fields.資料數量;
 </script>
 <template>
+  <Title />
+  <Modal />
   <div class="card_container">
-    <div class="test1">
+    <div
+      class="test1"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModalFullscreen"
+    >
       <div>
         <div>
           <p>12</p>
@@ -62,7 +70,11 @@ const data2 = data[13].fields.資料數量;
         <!-- <i class="fa-solid fa-arrow-right"></i> -->
       </div>
     </div>
-    <div class="test2">
+    <div
+      class="test2"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModalFullscreen2"
+    >
       <div>
         <p>{{ data1 }}</p>
         <h2>陳情案件</h2>
@@ -96,7 +108,11 @@ const data2 = data[13].fields.資料數量;
         <!-- <i class="fa-solid fa-arrow-right"></i> -->
       </div>
     </div>
-    <div class="test3">
+    <div
+      class="test3"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModalFullscreen2"
+    >
       <div>
         <p>{{ data2 }}</p>
         <h2>會勘及地方建設</h2>
@@ -130,7 +146,11 @@ const data2 = data[13].fields.資料數量;
         <!-- <i class="fa-solid fa-arrow-right"></i> -->
       </div>
     </div>
-    <div class="test4">
+    <div
+      class="test4"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModalFullscreen2"
+    >
       <div>
         <p>13</p>
         <h2>主辦記者會</h2>
@@ -164,7 +184,11 @@ const data2 = data[13].fields.資料數量;
         <!-- <i class="fa-solid fa-arrow-right"></i> -->
       </div>
     </div>
-    <div class="test5">
+    <div
+      class="test5"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModalFullscreen2"
+    >
       <div>
         <p>79</p>
         <h2>社會及公益活動</h2>
