@@ -26,4 +26,20 @@ console.log(data);
     </div>
   </div>
 </template>
-<style scoped></style>
+<style scoped lang="scss">
+.JointProposal {
+  @include breakpoint($lg) {
+    width: 100%;
+  }
+}
+
+.side_nav {
+  @include breakpoint($lg) {
+    width: 30%;
+  }
+}
+.proposal_result_content {
+  padding: 16px;
+  border-bottom: 20px solid #a63f24;
+}
+</style>

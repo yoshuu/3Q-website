@@ -24,7 +24,18 @@ const data = respond.data.records;
     </div>
   </div>
 </template>
-<style scoped>
+<style scoped lang="scss">
+.main-proposal {
+  @include breakpoint($lg) {
+    width: 100%;
+  }
+}
+
+.navbar-expand-lg .side_nav {
+  @include breakpoint($lg) {
+    width: 30%;
+  }
+}
 .proposal_result_content {
   padding: 16px;
   border-bottom: 20px solid #a63f24;

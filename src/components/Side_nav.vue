@@ -48,6 +48,7 @@ const currentTab = ref("MainProposal");
   @include breakpoint($lg) {
     max-width: 300px;
     height: 100%;
+    width: 30%;
   }
 }
 .side_nav a,
