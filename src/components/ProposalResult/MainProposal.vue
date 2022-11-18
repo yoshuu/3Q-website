@@ -9,20 +9,14 @@ const data = respond.data.records;
 </script>
 <template>
   <div class="main-proposal">
-    <div
-      class="proposal_result_content"
-      v-for="(item, apple) in data"
-      :key="item.id"
-    >
-      <div class="BaseInfo">
-        <p class="case_name">
-          {{ apple + 1 }}
-          {{ item.fields.提案名稱 }}
-        </p>
-        <div class="case_info">
-          <span> 提案日期：{{ item.fields.提案日期 }} </span>
-        </div>
+    <div class="proposal_result_content" v-for="item in data" :key="item.id">
+      <p class="case_name">
+        {{ item.fields.提案名稱 }}
+      </p>
+      <div class="case_info">
+        <span> 提案日期：{{ item.fields.提案日期 }} </span>
       </div>
+
       <div class="case_content">
         <p class="case_subtitle">內容關鍵字:</p>
         <p>{{ item.fields.內容關鍵字 }}</p>
@@ -40,11 +34,33 @@ const data = respond.data.records;
 
 .navbar-expand-lg .side_nav {
   @include breakpoint($lg) {
-    width: 30%;
+    width: calc(100% - 300px);
+    margin-left: auto;
+    padding-top: unset;
   }
 }
 .proposal_result_content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   padding: 16px;
   border-bottom: 20px solid #a63f24;
+  @include breakpoint($lg) {
+    padding: 50px 54px;
+  }
+}
+.case_name {
+  font-size: 17px;
+  font-weight: 700;
+}
+.case_info {
+  font-size: 13px;
+  color: #828282;
+  font-weight: 400;
+}
+.case_content {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 30.6px;
 }
 </style>

@@ -76,6 +76,33 @@ const data2 = data[13].fields.資料數量;
         </svg>
         <!-- <i class="fa-solid fa-arrow-right"></i> -->
       </div>
+      <div class="details_hover">
+        <p>詳細內容</p>
+        <svg
+          width="36"
+          height="36"
+          viewBox="0 0 36 36"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class=""
+        >
+          <circle
+            cx="18"
+            cy="18"
+            r="17"
+            transform="rotate(-90 18 18)"
+            stroke="#FFF"
+            stroke-width="2"
+          ></circle>
+          <path
+            d="M9.5 18h16.25M21 23l5-5-5-5"
+            stroke="#FFF"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+        </svg>
+      </div>
     </div>
     <div
       class="test2"
@@ -112,7 +139,33 @@ const data2 = data[13].fields.資料數量;
             stroke-linejoin="round"
           ></path>
         </svg>
-        <!-- <i class="fa-solid fa-arrow-right"></i> -->
+      </div>
+      <div class="details_hover">
+        <p>詳細內容</p>
+        <svg
+          width="36"
+          height="36"
+          viewBox="0 0 36 36"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class=""
+        >
+          <circle
+            cx="18"
+            cy="18"
+            r="17"
+            transform="rotate(-90 18 18)"
+            stroke="#FFF"
+            stroke-width="2"
+          ></circle>
+          <path
+            d="M9.5 18h16.25M21 23l5-5-5-5"
+            stroke="#FFF"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+        </svg>
       </div>
     </div>
     <div class="test3" data-bs-toggle="modal" data-bs-target="#Survey">
@@ -147,6 +200,33 @@ const data2 = data[13].fields.資料數量;
           ></path>
         </svg>
         <!-- <i class="fa-solid fa-arrow-right"></i> -->
+      </div>
+      <div class="details_hover">
+        <p>詳細內容</p>
+        <svg
+          width="36"
+          height="36"
+          viewBox="0 0 36 36"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class=""
+        >
+          <circle
+            cx="18"
+            cy="18"
+            r="17"
+            transform="rotate(-90 18 18)"
+            stroke="#FFF"
+            stroke-width="2"
+          ></circle>
+          <path
+            d="M9.5 18h16.25M21 23l5-5-5-5"
+            stroke="#FFF"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+        </svg>
       </div>
     </div>
     <div
@@ -186,6 +266,33 @@ const data2 = data[13].fields.資料數量;
         </svg>
         <!-- <i class="fa-solid fa-arrow-right"></i> -->
       </div>
+      <div class="details_hover">
+        <p>詳細內容</p>
+        <svg
+          width="36"
+          height="36"
+          viewBox="0 0 36 36"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class=""
+        >
+          <circle
+            cx="18"
+            cy="18"
+            r="17"
+            transform="rotate(-90 18 18)"
+            stroke="#FFF"
+            stroke-width="2"
+          ></circle>
+          <path
+            d="M9.5 18h16.25M21 23l5-5-5-5"
+            stroke="#FFF"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+        </svg>
+      </div>
     </div>
     <div
       class="test5"
@@ -224,6 +331,33 @@ const data2 = data[13].fields.資料數量;
         </svg>
         <!-- <i class="fa-solid fa-arrow-right"></i> -->
       </div>
+      <div class="details_hover">
+        <p>詳細內容</p>
+        <svg
+          width="36"
+          height="36"
+          viewBox="0 0 36 36"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class=""
+        >
+          <circle
+            cx="18"
+            cy="18"
+            r="17"
+            transform="rotate(-90 18 18)"
+            stroke="#FFF"
+            stroke-width="2"
+          ></circle>
+          <path
+            d="M9.5 18h16.25M21 23l5-5-5-5"
+            stroke="#FFF"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></path>
+        </svg>
+      </div>
     </div>
   </div>
   <div class="main_slogan_container">
@@ -245,49 +379,51 @@ const data2 = data[13].fields.資料數量;
   margin-top: -129px;
   color: $primary;
   font-weight: 900;
-  @include breakpoint($md) {
-  }
-  @include breakpoint($md) {
+  @include breakpoint($xl) {
     margin-top: unset;
-    padding: 0 88px;
+    padding: 0 140px 60px;
     display: grid;
-    grid-template-rows: 40vw 2vw 18vw 2vw 2vw 20vw;
-    grid-template-columns: 32.1% 1.72% 18.5% 13.5% 1.72% 32.1%;
-  }
-  @include breakpoint($lg) {
-    padding: 0 140px;
+    justify-content: center;
+    gap: 20px;
+    grid-template-columns: 373px 219px 134px 373px;
+    grid-template-rows: 436px 191px 19px 230px;
   }
   @include breakpoint($xxl) {
-    display: grid;
-    grid-template-rows: 436px 20px 210px 20px 20px 230px;
-    // grid-template-columns: 373px 20px 215.6px 157.4px 20px 373px;
+    grid-template-columns: 25.9vw 15.2vw 9.3vw 25.9vw;
+    gap: 2vw;
   }
-
-  > div {
+  > div:nth-child(n) {
     position: relative;
     margin: 0 16px 16px;
     padding: 16px 16px;
     min-height: 205px;
-
-    &:hover {
+    .details_hover {
       svg {
-        transform: rotate(90deg);
-        transition-duration: 2s;
-        transition-property: transform;
+        transform: rotate(-90deg);
+        opacity: 0;
         circle,
         path {
           stroke: white;
         }
       }
+    }
+    &:hover {
       color: white;
       background: $primary;
-    }
-    @include breakpoint($md) {
-      margin: 0;
-      min-height: unset;
+      .details svg {
+        opacity: 0;
+      }
+      .details_hover svg {
+        opacity: 1;
+        transform: rotate(0deg);
+        transition-duration: 1s;
+        transition-property: transform;
+      }
     }
     @include breakpoint($xl) {
       padding: 24px 30px;
+      margin: 0;
+      min-height: unset;
     }
   }
   h2 {
@@ -304,118 +440,108 @@ const data2 = data[13].fields.資料數量;
       line-height: 80px;
     }
   }
-  .details {
+  .details,
+  .details_hover {
     position: absolute;
     display: flex;
     align-items: center;
+    gap: 16px;
     bottom: 16px;
     right: 16px;
-    @include breakpoint($xxl) {
-      bottom: 30px;
+    @include breakpoint($xl) {
       right: 30px;
     }
     p {
       font-size: 15px;
-      @include breakpoint($xxl) {
+      @include breakpoint($xl) {
         font-size: 24px;
       }
     }
-
     svg {
-      margin-left: 16px;
       circle,
       path {
         stroke: $primary;
       }
-      @include breakpoint($lg) {
+      @include breakpoint($xl) {
         width: 54px;
         height: 54px;
       }
     }
   }
 }
-.test1 {
-  grid-area: 1/1/1/4;
+.card_container > div:nth-child(1) {
+  grid-area: 1/1/1/3;
   background: url(../assets/images/proposal-bg.png) no-repeat 190px bottom
     #f6f6f6;
   background-size: 298px 152px;
-  @include breakpoint($lg) {
+  @include breakpoint($xl) {
     background-size: 510px 260px;
     background-position: 290px 176px;
   }
-
   > div:nth-child(1) {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    width: 256px;
-    @include breakpoint($xl) {
-      width: 355px;
-    }
+    gap: 16px;
+    width: 225px;
     > div {
       flex-basis: 104px;
       @include breakpoint($xl) {
         flex-basis: 150px;
       }
     }
-    > div:nth-child(n + 3) {
-      margin-top: 17px;
-      @include breakpoint($lg) {
-        margin-top: 24px;
-      }
+    @include breakpoint($xl) {
+      row-gap: 24px;
+      width: 355px;
     }
   }
 }
-.test2 {
-  grid-area: 3/1/5/2;
+.card_container > div:nth-child(2) {
+  grid-area: 2/1/4/2;
   background: url(../assets/images/petition-bg.png) no-repeat 169px 75px #f6f6f6;
   background-size: 154px 169px;
-  @include breakpoint($lg) {
+  @include breakpoint($xl) {
     background-size: 175px 208.56px;
     background-position: 175px 92.8px;
   }
 }
-.test3 {
-  grid-area: 3/3/7/5;
+.card_container > div:nth-child(3) {
+  grid-area: 2/2/5/4;
   background: url(../assets/images/survey-bg-lg.png) no-repeat 171px 16px
     #f6f6f6;
   background-size: 151px 279px;
-  @include breakpoint($lg) {
+  @include breakpoint($xl) {
     background-size: 254px 468.38px;
     background-position: 124px 56px;
   }
-
-  > div {
-    @include breakpoint($md) {
-      text-align: center;
-    }
-  }
-  .details {
-    @include breakpoint($md) {
-      justify-content: center;
-      position: unset;
-    }
-  }
 }
-.test4 {
-  grid-area: 6/1/6/2;
+.card_container > div:nth-child(4) {
+  grid-area: 4/1/5/2;
   background: url(../assets/images/press-conference-bg.png) no-repeat -26px 18px
     #f6f6f6;
   background-size: 507px 308px;
-  @include breakpoint($lg) {
+  @include breakpoint($xl) {
     background-size: 672px 395.95px;
     background-position: -148px 32.03px;
   }
+  > div {
+    @include breakpoint($xl) {
+      text-align: center;
+      .details,
+      .details_hover {
+        right: 50%;
+        transform: translateX(50%);
+      }
+    }
+  }
 }
-.test5 {
-  grid-area: 4/6/7/7;
+.card_container > div:nth-child(5) {
+  grid-area: 3/4/5/5;
   background: url(../assets/images/welfare-bg.png) no-repeat 87px 25px #f6f6f6;
   background-size: 271.55px 228px;
-  @include breakpoint($lg) {
+  @include breakpoint($xl) {
     background-size: 318px 267px;
     background-position: 113px 25px;
-  }
-  @include breakpoint($md) {
     z-index: 2;
   }
 }
@@ -429,9 +555,8 @@ const data2 = data[13].fields.資料數量;
   text-align: center;
   font-weight: 900;
   color: white;
-  margin-top: 1.5rem;
   background-color: $primary;
-  @include breakpoint($md) {
+  @include breakpoint($xl) {
     padding: 35px 0 49px;
     gap: 27px;
   }
@@ -440,7 +565,7 @@ const data2 = data[13].fields.資料數量;
     flex-direction: column;
     justify-content: center;
     font-size: 40px;
-    @include breakpoint($md) {
+    @include breakpoint($xl) {
       flex-direction: row;
       margin-bottom: 27px;
       font-size: 60px;
@@ -449,18 +574,18 @@ const data2 = data[13].fields.資料數量;
   }
   h3 {
     font-size: 17px;
-    @include breakpoint($md) {
+    @include breakpoint($xl) {
       font-size: 24px;
     }
   }
   p {
     font-size: 50px;
-    @include breakpoint($md) {
+    @include breakpoint($xl) {
       font-size: 100px;
     }
   }
   > div {
-    @include breakpoint($md) {
+    @include breakpoint($xl) {
       display: flex;
       justify-content: center;
       gap: 99px;

@@ -81,11 +81,12 @@ const tabs = {
 </template>
 <style lang="scss" scoped>
 .side_nav {
+  position: fixed;
+  width: 100%;
   background-color: $primary;
   @include breakpoint($lg) {
     max-width: 300px;
     height: 100%;
-    width: 30%;
   }
 }
 .side_nav a,
@@ -109,8 +110,9 @@ const tabs = {
   }
 }
 .side_nav div + div,
-.side_nav a + a {
-  border-top: 1px solid white;
+.side_nav a,
+.side_nav-active button {
+  border-bottom: 1px solid white;
 }
 .side_nav-active {
   display: flex;
