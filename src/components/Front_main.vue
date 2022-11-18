@@ -592,8 +592,10 @@ const value2 = () => {
   background-size: 507px 308px;
   .details,
   .details_hover {
-    right: 50%;
-    transform: translateX(50%);
+    @include breakpoint($xl) {
+      right: 50%;
+      transform: translateX(50%);
+    }
   }
   @include breakpoint($xl) {
     background-size: 672px 395.95px;

@@ -6,12 +6,27 @@ const respond = await GET(
 );
 
 const data = respond.data.records;
+const Youtube = (s) => {
+  if (!s) return;
+  return s.includes("youtube");
+};
+const transfer = (s) => {
+  if (s == undefined) {
+    return;
+  } else if (s.includes("youtube") == true) {
+    return s.replace("watch", "embed");
+  }
+};
 </script>
 <template>
   <div class="main-proposal">
     <div class="proposal_result_content" v-for="item in data" :key="item.id">
-      <div class="video_container">
-        <iframe :src="item.fields.YT連結"></iframe>
+      <div v-if="Youtube(item.fields.YT連結) == true" class="video_container">
+        <iframe
+          class="youtube_container"
+          width="100%"
+          :src="transfer(item.fields.YT連結)"
+        ></iframe>
       </div>
       <div class="case_container">
         <p class="case_name">

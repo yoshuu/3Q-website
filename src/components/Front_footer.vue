@@ -84,7 +84,12 @@
       </div>
       <div class="community_share">
         <p>分享至</p>
-        <a href="##">
+        <a
+          target="_target"
+          data-size="small"
+          href="https://social-plugins.line.me/lineit/share?url=http://192.168.0.102:5173/
+"
+        >
           <svg
             width="36"
             height="36"
@@ -97,7 +102,10 @@
             ></path>
           </svg>
         </a>
-        <a href="##">
+        <a
+          target="_target"
+          href="https://www.facebook.com/sharer/sharer.php?kid_directed_site=0&sdk=joey&u=http%3A%2F%2F192.168.0.102%3A5173%2F&display=popup&ref=plugin&src=share_button"
+        >
           <svg
             width="36"
             height="36"
