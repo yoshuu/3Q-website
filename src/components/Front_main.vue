@@ -1,6 +1,6 @@
 <script setup>
 import { GET } from "@/api/api.js";
-import Title from "./Title.vue";
+import NavTop from "./Title.vue";
 import PetitionCase from "./PetitionCase.vue";
 import CharitableActivity from "./CharitableActivity.vue";
 import PressConference from "./PressConference.vue";
@@ -26,11 +26,21 @@ const data11 = ref(data[10].fields.資料數量);
 const data12 = ref(data[11].fields.資料數量);
 // const data13 = ref(data[12].fields.資料數量);
 // const data14 = ref(data[13].fields.資料數量);
+
+const flag = ref(false);
+const value = () => {
+  flag.value = true;
+};
+
+const flag2 = ref(false);
+const value2 = () => {
+  flag2.value = true;
+};
 </script>
 <template>
-  <Title />
+  <NavTop :flag="flag" />
   <Suspense>
-    <Survey />
+    <Survey :flag2="flag2" />
   </Suspense>
   <Suspense>
     <CharitableActivity />
@@ -45,6 +55,7 @@ const data12 = ref(data[11].fields.資料數量);
   <div class="card_container">
     <div
       class="test1"
+      @click="value"
       data-bs-toggle="modal"
       data-bs-target="#exampleModalFullscreen"
     >
@@ -143,7 +154,12 @@ const data12 = ref(data[11].fields.資料數量);
     >
       <div>
         <p>
-          <countTo :startVal="0" :endVal="data1" :duration="4000"></countTo>
+          <countTo
+            :separator="false"
+            :startVal="0"
+            :endVal="data1"
+            :duration="4000"
+          ></countTo>
         </p>
         <h2>陳情案件</h2>
       </div>
@@ -202,7 +218,12 @@ const data12 = ref(data[11].fields.資料數量);
         </svg>
       </div>
     </div>
-    <div class="test3" data-bs-toggle="modal" data-bs-target="#Survey">
+    <div
+      class="test3"
+      @click="value2"
+      data-bs-toggle="modal"
+      data-bs-target="#Survey"
+    >
       <div>
         <p>
           <countTo :startVal="0" :endVal="data12" :duration="4000"></countTo>
@@ -401,13 +422,23 @@ const data12 = ref(data[11].fields.資料數量);
     <div>
       <div>
         <p>
-          <count-to :startVal="0" :endVal="4946" :duration="4000"></count-to>
+          <count-to
+            :separator="false"
+            :startVal="0"
+            :endVal="4946"
+            :duration="4000"
+          ></count-to>
         </p>
         <h3>地方行程</h3>
       </div>
       <div>
         <p>
-          <count-to :startVal="0" :endVal="1846" :duration="4000"></count-to>
+          <count-to
+            :separator="false"
+            :startVal="0"
+            :endVal="1846"
+            :duration="4000"
+          ></count-to>
         </p>
         <h3>鄉親拜訪</h3>
       </div>

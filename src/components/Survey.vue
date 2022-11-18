@@ -5,13 +5,21 @@ import FirstSession from "../components/Survey/FirstSession.vue";
 import SecondSession from "../components/Survey/SecondSession.vue";
 import ThirdSession from "../components/Survey/ThirdSession.vue";
 import Main from "../components/Survey/Main.vue";
-
+import { CountTo } from "vue3-count-to";
 import { GET } from "@/api/api.js";
+defineProps(["flag2"]);
+
 const respond = await GET(
   "https://api.airtable.com/v0/app4NIZthoTlA3i05/%E5%90%84%E8%B3%87%E6%96%99%E6%95%B8%E9%87%8F?maxRecords=30&view=Grid%20view"
 );
 
 const data = respond.data.records;
+
+const data1 = data[4].fields.資料數量;
+const data2 = data[1].fields.資料數量;
+const data3 = data[2].fields.資料數量;
+const data4 = data[3].fields.資料數量;
+const data5 = data[13].fields.資料數量;
 
 const currentTab = ref("FirstSession");
 
@@ -53,8 +61,15 @@ const tabs = {
                   href="##"
                   :class="{ active: currentTab === 'Representative' }"
                   @click="currentTab = 'Representative'"
-                  ><span>會勘及地方建設</span><span>(第一期)</span
-                  ><span>{{ data[1].fields.資料數量 }}</span>
+                  ><span>代表性地方建設</span>
+                  <span
+                    ><countTo
+                      v-if="flag2"
+                      :startVal="0"
+                      :endVal="data1"
+                      :duration="3000"
+                    ></countTo
+                  ></span>
                 </a>
                 <button
                   class="navbar-toggler"
@@ -74,27 +89,56 @@ const tabs = {
                   :class="{ active: currentTab === 'FirstSession' }"
                   @click="currentTab = 'FirstSession'"
                   ><span>會勘及地方建設</span><span>(第一期)</span
-                  ><span>{{ data[1].fields.資料數量 }}</span>
+                  ><span
+                    ><countTo
+                      v-if="flag2"
+                      :startVal="0"
+                      :endVal="data2"
+                      :duration="3000"
+                    ></countTo
+                  ></span>
                 </a>
                 <a
                   href="##"
                   :class="{ active: currentTab === 'SecondSession' }"
                   @click="currentTab = 'SecondSession'"
                   ><span>會勘及地方建設</span><span>(第二期)</span
-                  ><span>{{ data[2].fields.資料數量 }}</span>
+                  ><span
+                    ><countTo
+                      v-if="flag2"
+                      :startVal="0"
+                      :endVal="data3"
+                      :duration="3000"
+                    ></countTo
+                  ></span>
                 </a>
                 <a
                   href="##"
                   :class="{ active: currentTab === 'ThirdSession' }"
                   @click="currentTab = 'ThirdSession'"
                   ><span>會勘及地方建設</span><span>(第三期)</span
-                  ><span>{{ data[3].fields.資料數量 }}</span>
+                  ><span
+                    ><countTo
+                      v-if="flag2"
+                      :startVal="0"
+                      :endVal="data4"
+                      :duration="3000"
+                    ></countTo
+                  ></span>
                 </a>
                 <a
                   href="##"
                   :class="{ active: currentTab === 'Main' }"
                   @click="currentTab = 'Main'"
-                  ><span>主要</span><span>{{ data[13].fields.資料數量 }}</span>
+                  ><span>主要</span
+                  ><span
+                    ><countTo
+                      v-if="flag2"
+                      :startVal="0"
+                      :endVal="data5"
+                      :duration="3000"
+                    ></countTo
+                  ></span>
                 </a>
               </div>
             </nav>

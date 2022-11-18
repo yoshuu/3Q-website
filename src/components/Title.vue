@@ -1,6 +1,7 @@
 <script setup>
 //立院成果
-import side_navVue from "./side_nav.vue";
+import side_nav from "./side_nav.vue";
+defineProps(["flag"]);
 </script>
 <template>
   <div
@@ -34,7 +35,7 @@ import side_navVue from "./side_nav.vue";
         </div>
         <div class="modal-body p-0">
           <Suspense>
-            <side_navVue />
+            <side_nav :flag="flag" />
           </Suspense>
         </div>
       </div>

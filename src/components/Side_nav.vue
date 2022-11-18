@@ -4,6 +4,7 @@ import JointProposal from "./ProposalResult/JointProposal.vue";
 import OralQuestioning from "./ProposalResult/OralQuestioning.vue";
 import OtherSpeeches from "./ProposalResult/OtherSpeeches.vue";
 import OralInterpellation from "./ProposalResult/OralInterpellation.vue";
+import { CountTo } from "vue3-count-to";
 import { ref } from "vue";
 
 // 各資料數量
@@ -13,6 +14,11 @@ const respond = await GET(
 );
 
 const data = respond.data.records;
+const data1 = ref(data[7].fields.資料數量);
+const data2 = ref(data[8].fields.資料數量);
+const data3 = ref(data[9].fields.資料數量);
+const data4 = ref(data[10].fields.資料數量);
+const data5 = ref(data[11].fields.資料數量);
 
 const currentTab = ref("MainProposal");
 
@@ -23,8 +29,9 @@ const tabs = {
   OtherSpeeches,
   OralInterpellation,
 };
-</script>
 
+defineProps(["flag"]);
+</script>
 <template>
   <div class="Side_nav_box">
     <nav class="navbar-expand-xl side_nav">
@@ -33,7 +40,15 @@ const tabs = {
           href="##"
           :class="{ active: currentTab === 'MainProposal' }"
           @click="currentTab = 'MainProposal'"
-          ><span>法律主提案</span><span>{{ data[11].fields.資料數量 }}</span>
+          ><span>法律主提案</span
+          ><span
+            ><countTo
+              v-if="flag"
+              :startVal="0"
+              :endVal="data5"
+              :duration="3000"
+            ></countTo
+          ></span>
         </a>
         <button
           class="navbar-toggler"
@@ -52,25 +67,57 @@ const tabs = {
           href="##"
           :class="{ active: currentTab === 'JointProposal' }"
           @click="currentTab = 'JointProposal'"
-          ><span>法律共同提案</span><span>{{ data[10].fields.資料數量 }}</span>
+          ><span>法律共同提案</span
+          ><span
+            ><countTo
+              v-if="flag"
+              :startVal="0"
+              :endVal="data4"
+              :duration="3000"
+            ></countTo
+          ></span>
         </a>
         <a
           href="##"
           :class="{ active: currentTab === 'OralInterpellation' }"
           @click="currentTab = 'OralInterpellation'"
-          ><span>書面質詢</span><span>{{ data[9].fields.資料數量 }}</span>
+          ><span>書面質詢</span
+          ><span
+            ><countTo
+              v-if="flag"
+              :startVal="0"
+              :endVal="data3"
+              :duration="3000"
+            ></countTo
+          ></span>
         </a>
         <a
           href="##"
           :class="{ active: currentTab === 'OralQuestioning' }"
           @click="currentTab = 'OralQuestioning'"
-          ><span>口頭質詢</span><span>{{ data[8].fields.資料數量 }}</span>
+          ><span>口頭質詢</span
+          ><span
+            ><countTo
+              v-if="flag"
+              :startVal="0"
+              :endVal="data2"
+              :duration="3000"
+            ></countTo
+          ></span>
         </a>
         <a
           href="##"
           :class="[{ active: currentTab === 'OtherSpeeches' }]"
           @click="currentTab = 'OtherSpeeches'"
-          ><span>其他國會語言</span><span>{{ data[7].fields.資料數量 }}</span>
+          ><span>其他國會語言</span
+          ><span>
+            <countTo
+              v-if="flag"
+              :startVal="0"
+              :endVal="data1"
+              :duration="3000"
+            ></countTo>
+          </span>
         </a>
       </div>
     </nav>
