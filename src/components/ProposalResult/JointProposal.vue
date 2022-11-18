@@ -1,4 +1,5 @@
 <script setup>
+// 法律共同提案
 import { GET } from "@/api/api.js";
 
 const respond = await GET(
