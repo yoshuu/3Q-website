@@ -19,7 +19,7 @@ const data = respond.data.records;
     <div class="modal-dialog modal-fullscreen">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title" id="exampleModalFullscreen">TEXT</h4>
+          <h4 class="modal-title" id="exampleModalFullscreen">陳情案件</h4>
           <button
             type="button"
             class="btn-close"
