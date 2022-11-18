@@ -524,12 +524,12 @@ const data2 = data[13].fields.資料數量;
   > div {
     @include breakpoint($xl) {
       text-align: center;
+      .details,
+      .details_hover {
+        right: 50%;
+        transform: translateX(50%);
+      }
     }
-  }
-  .details,
-  .details_hover {
-    right: 50%;
-    transform: translateX(50%);
   }
 }
 .card_container > div:nth-child(5) {
