@@ -1,17 +1,16 @@
 <script setup>
-import side_navVue from "./side_nav.vue";
+// 陳情案件
+import { GET } from "@/api/api.js";
+
+const respond = await GET(
+  "%E9%81%B8%E6%9C%8D%E9%99%B3%E6%83%85%E6%A1%88%E4%BB%B6?maxRecords=100&view=Grid%20view"
+);
+const data = respond.data.records;
 </script>
 <template>
-  <!-- <button
-    type="button"
-    class="btn btn-primary"
-    data-bs-toggle="modal"
-    data-bs-target="#exampleModalFullscreen"
-  ></button> -->
-  <!-- Modal -->
   <div
     class="modal fade"
-    id="exampleModalFullscreen"
+    id="exampleModalFullscreen3"
     tabindex="-1"
     aria-labelledby="exampleModalFullscreenLabel"
     aria-hidden="true"
@@ -20,7 +19,7 @@ import side_navVue from "./side_nav.vue";
     <div class="modal-dialog modal-fullscreen">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title" id="exampleModalFullscreen">立院成果</h4>
+          <h4 class="modal-title" id="exampleModalFullscreen">陳情案件</h4>
           <button
             type="button"
             class="btn-close"
@@ -29,9 +28,14 @@ import side_navVue from "./side_nav.vue";
           ></button>
         </div>
         <div class="modal-body p-0">
-          <Suspense>
-            <side_navVue />
-          </Suspense>
+          <div class="Side_nav_box" v-for="item in data" :key="item.id">
+            <h2>案件編號：{{}}</h2>
+            <h2>日期：{{ item.fields.提案名稱 }}</h2>
+            <h2>地區：{{}}</h2>
+            <h2>區域性：{{}}</h2>
+            <h2>類別：{{ item.fields.性質 }}</h2>
+            <h2>標題：{{ item.fields.案件標題 }}</h2>
+          </div>
         </div>
       </div>
     </div>

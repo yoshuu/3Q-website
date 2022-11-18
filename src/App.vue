@@ -18,6 +18,7 @@ import Front_footer from "./components/Front_footer.vue";
     </div>
   </Suspense>
 </template>
+
 <style scoped lang="scss">
 .front {
   position: relative;
