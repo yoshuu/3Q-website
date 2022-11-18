@@ -4,13 +4,27 @@ import Title from "./Title.vue";
 import Modal from "./Modal.vue";
 import PetitionCase from "./PetitionCase.vue";
 import Survey from "./Survey.vue";
+import { CountTo } from "vue3-count-to";
+import { ref } from "vue";
 
 const respond = await GET(
   "/%E5%90%84%E8%B3%87%E6%96%99%E6%95%B8%E9%87%8F?maxRecords=100&view=Grid%20view"
 );
 const data = respond.data.records;
-const data1 = data[0].fields.資料數量;
-const data2 = data[13].fields.資料數量;
+const data1 = ref(data[0].fields.資料數量);
+// const data2 = ref(data[1].fields.資料數量);
+// const data3 = ref(data[2].fields.資料數量);
+// const data4 = ref(data[3].fields.資料數量);
+// const data5 = ref(data[4].fields.資料數量);
+const data6 = ref(data[5].fields.資料數量);
+const data7 = ref(data[6].fields.資料數量);
+const data8 = ref(data[7].fields.資料數量);
+const data9 = ref(data[8].fields.資料數量);
+const data10 = ref(data[9].fields.資料數量);
+const data11 = ref(data[10].fields.資料數量);
+const data12 = ref(data[11].fields.資料數量);
+// const data13 = ref(data[12].fields.資料數量);
+// const data14 = ref(data[13].fields.資料數量);
 </script>
 <template>
   <Title />
@@ -28,23 +42,33 @@ const data2 = data[13].fields.資料數量;
     >
       <div>
         <div>
-          <p>12</p>
+          <p>
+            <countTo :startVal="0" :endVal="data12" :duration="4000"></countTo>
+          </p>
           <h2>法律主提案</h2>
         </div>
         <div>
-          <p>12</p>
+          <p>
+            <countTo :startVal="0" :endVal="data11" :duration="4000"></countTo>
+          </p>
           <h2>法律共同提案</h2>
         </div>
         <div>
-          <p>98</p>
+          <p>
+            <countTo :startVal="0" :endVal="data10" :duration="4000"></countTo>
+          </p>
           <h2>書面質詢</h2>
         </div>
         <div>
-          <p>18</p>
+          <p>
+            <countTo :startVal="0" :endVal="data9" :duration="4000"></countTo>
+          </p>
           <h2>口頭質詢</h2>
         </div>
         <div>
-          <p>98</p>
+          <p>
+            <countTo :startVal="0" :endVal="data8" :duration="4000"></countTo>
+          </p>
           <h2>其他國會發言</h2>
         </div>
       </div>
@@ -110,7 +134,9 @@ const data2 = data[13].fields.資料數量;
       data-bs-target="#exampleModalFullscreen3"
     >
       <div>
-        <p>{{ data1 }}</p>
+        <p>
+          <countTo :startVal="0" :endVal="data1" :duration="4000"></countTo>
+        </p>
         <h2>陳情案件</h2>
       </div>
       <div class="details">
@@ -170,7 +196,9 @@ const data2 = data[13].fields.資料數量;
     </div>
     <div class="test3" data-bs-toggle="modal" data-bs-target="#Survey">
       <div>
-        <p>{{ data2 }}</p>
+        <p>
+          <countTo :startVal="0" :endVal="data12" :duration="4000"></countTo>
+        </p>
         <h2>會勘及地方建設</h2>
       </div>
       <div class="details">
@@ -235,7 +263,9 @@ const data2 = data[13].fields.資料數量;
       data-bs-target="#exampleModalFullscreen2"
     >
       <div>
-        <p>13</p>
+        <p>
+          <countTo :startVal="0" :endVal="data7" :duration="4000"></countTo>
+        </p>
         <h2>主辦記者會</h2>
       </div>
       <div class="details">
@@ -300,7 +330,9 @@ const data2 = data[13].fields.資料數量;
       data-bs-target="#exampleModalFullscreen2"
     >
       <div>
-        <p>79</p>
+        <p>
+          <countTo :startVal="0" :endVal="data6" :duration="4000"></countTo>
+        </p>
         <h2>社會及公益活動</h2>
       </div>
       <div class="details">
@@ -364,11 +396,15 @@ const data2 = data[13].fields.資料數量;
     <h2><span>不只會做事</span><span>更重視鄉親</span></h2>
     <div>
       <div>
-        <p>4964</p>
+        <p>
+          <count-to :startVal="0" :endVal="4946" :duration="4000"></count-to>
+        </p>
         <h3>地方行程</h3>
       </div>
       <div>
-        <p>1846</p>
+        <p>
+          <count-to :startVal="0" :endVal="1846" :duration="4000"></count-to>
+        </p>
         <h3>鄉親拜訪</h3>
       </div>
     </div>
