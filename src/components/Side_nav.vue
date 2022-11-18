@@ -6,6 +6,14 @@ import OtherSpeeches from "./ProposalResult/OtherSpeeches.vue";
 import OralInterpellation from "./ProposalResult/OralInterpellation.vue";
 import { ref } from "vue";
 
+// 各資料數量
+import { GET } from "@/api/api.js";
+const respond = await GET(
+  "https://api.airtable.com/v0/app4NIZthoTlA3i05/%E5%90%84%E8%B3%87%E6%96%99%E6%95%B8%E9%87%8F?maxRecords=30&view=Grid%20view"
+);
+
+const data = respond.data.records;
+
 const currentTab = ref("MainProposal");
 
 const tabs = {
@@ -25,7 +33,7 @@ const tabs = {
           href="##"
           :class="{ active: currentTab === 'MainProposal' }"
           @click="currentTab = 'MainProposal'"
-          ><span>法律主提案</span><span>12</span>
+          ><span>法律主提案</span><span>{{ data[11].fields.資料數量 }}</span>
         </a>
         <button
           class="navbar-toggler"
@@ -44,25 +52,25 @@ const tabs = {
           href="##"
           :class="{ active: currentTab === 'JointProposal' }"
           @click="currentTab = 'JointProposal'"
-          ><span>法律共同提案</span><span>81</span>
+          ><span>法律共同提案</span><span>{{ data[10].fields.資料數量 }}</span>
         </a>
         <a
           href="##"
           :class="{ active: currentTab === 'OralInterpellation' }"
           @click="currentTab = 'OralInterpellation'"
-          ><span>書面質詢</span><span>91</span>
+          ><span>書面質詢</span><span>{{ data[9].fields.資料數量 }}</span>
         </a>
         <a
           href="##"
           :class="{ active: currentTab === 'OralQuestioning' }"
           @click="currentTab = 'OralQuestioning'"
-          ><span>口頭質詢</span><span>91</span>
+          ><span>口頭質詢</span><span>{{ data[8].fields.資料數量 }}</span>
         </a>
         <a
           href="##"
           :class="[{ active: currentTab === 'OtherSpeeches' }]"
           @click="currentTab = 'OtherSpeeches'"
-          ><span>其他國會語言</span><span>91</span>
+          ><span>其他國會語言</span><span>{{ data[7].fields.資料數量 }}</span>
         </a>
       </div>
     </nav>

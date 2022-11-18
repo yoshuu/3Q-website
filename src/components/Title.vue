@@ -29,7 +29,9 @@ import side_navVue from "./side_nav.vue";
           ></button>
         </div>
         <div class="modal-body p-0">
-          <side_navVue />
+          <Suspense>
+            <side_navVue />
+          </Suspense>
         </div>
       </div>
     </div>
