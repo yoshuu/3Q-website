@@ -1,4 +1,47 @@
-<script setup></script>
+<script setup>
+import { reactive } from "vue";
+
+//取得時間
+let nowTime = reactive({
+  data: "",
+});
+let myDate = new Date();
+function setTime(myDate) {
+  const year = myDate.getFullYear();
+  const month =
+    myDate.getMonth() + 1 < 10
+      ? "0" + (myDate.getMonth() + 1)
+      : myDate.getMonth() + 1;
+  const date =
+    myDate.getDate() < 10 ? "0" + myDate.getDate() : myDate.getDate();
+  const h = myDate.getHours();
+  const m =
+    myDate.getMinutes() < 10 ? "0" + myDate.getMinutes() : myDate.getMinutes();
+  const s =
+    myDate.getSeconds() < 10 ? "0" + myDate.getSeconds() : myDate.getSeconds();
+
+  nowTime.data =
+    (year - 2020) * 365 +
+    (month - 2) * 30 +
+    (date - 1) +
+    4 +
+    "天" +
+    h +
+    "時" +
+    m +
+    "分" +
+    s +
+    "秒";
+}
+function nowTimes() {
+  setTime(myDate);
+  setInterval(() => {
+    myDate = new Date();
+    setTime(myDate);
+  }, 1000);
+}
+nowTimes();
+</script>
 <template>
   <div class="header_container">
     <div class="slogan_container">
@@ -13,10 +56,7 @@
       <img src="../../src/assets/images/people-01.png" alt="形象照" />
     </div>
     <div class="duration_container">
-      <p>
-        上任第 <span>100</span> 天 <span>14</span> 時 <span>2</span> 分
-        <span>30</span> 秒
-      </p>
+      <p>上任第{{ nowTime.data }}</p>
       <p>立院出席率<span>100%</span></p>
     </div>
     <div class="data_prove">
