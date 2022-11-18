@@ -26,6 +26,7 @@
           </svg>
         </a>
         <a
+          target="_target"
           class="community_add_facebook"
           href="https://www.facebook.com/3Q.PehUi"
         >
