@@ -1,14 +1,8 @@
 <script setup>
+//立院成果
 import side_navVue from "./side_nav.vue";
 </script>
 <template>
-  <!-- <button
-    type="button"
-    class="btn btn-primary"
-    data-bs-toggle="modal"
-    data-bs-target="#exampleModalFullscreen"
-  ></button> -->
-  <!-- Modal -->
   <div
     class="modal fade"
     id="exampleModalFullscreen"
@@ -20,7 +14,17 @@ import side_navVue from "./side_nav.vue";
     <div class="modal-dialog modal-fullscreen">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title" id="exampleModalFullscreen">立院成果</h4>
+          <h4 class="modal-title" id="exampleModalFullscreen">
+            立院成果
+            <span
+              >想知道更多問政成果嗎？歡迎至
+              <a
+                href="https://docs.google.com/spreadsheets/d/1Hcp9VOefbP23FeBwgqXLXDAfQ_3msOD8yS6Wk1ICXhA/edit#gid=0&range=D2"
+                >立法院國會圖書館</a
+              >
+              之「立委問政專輯」查看，3Q！」
+            </span>
+          </h4>
           <button
             type="button"
             class="btn-close"
@@ -42,20 +46,21 @@ import side_navVue from "./side_nav.vue";
   padding: 0;
   background-color: #a63f24;
   h4 {
-    font-weight: bold;
+    padding: 17px 30px;
+    font-weight: 900;
     font-size: 24px;
     color: white;
+    span {
+      margin-left: 16px;
+      vertical-align: middle;
+      font-size: 12px;
+    }
+    a {
+      text-decoration: underline;
+      color: white;
+    }
     @include breakpoint($lg) {
       font-size: 36px;
-    }
-  }
-  h4 {
-    padding: 17px 30px;
-  }
-  a {
-    padding: 25px 30px;
-    :hover {
-      transform: rotate(180deg);
     }
   }
 }

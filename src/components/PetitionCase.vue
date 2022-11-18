@@ -3,7 +3,7 @@
 import { GET } from "@/api/api.js";
 
 const respond = await GET(
-  "%E9%81%B8%E6%9C%8D%E9%99%B3%E6%83%85%E6%A1%88%E4%BB%B6?maxRecords=100&view=Grid%20view"
+  "%E9%81%B8%E6%9C%8D%E9%99%B3%E6%83%85%E6%A1%88%E4%BB%B6?maxRecords=12&view=Grid%20view"
 );
 const data = respond.data.records;
 </script>
@@ -19,7 +19,10 @@ const data = respond.data.records;
     <div class="modal-dialog modal-fullscreen">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title" id="exampleModalFullscreen">陳情案件</h4>
+          <h4 class="modal-title" id="exampleModalFullscreen">
+            陳情案件
+            <span>因涉及民眾敏感個人資料，僅呈現精選 12 則 </span>
+          </h4>
           <button
             type="button"
             class="btn-close"
@@ -49,7 +52,12 @@ const data = respond.data.records;
     font-weight: bold;
     font-size: 24px;
     color: white;
-    @include breakpoint($lg) {
+    span {
+      margin-left: 16px;
+      vertical-align: middle;
+      font-size: 12px;
+    }
+    @include breakpoint($xl) {
       font-size: 36px;
     }
   }

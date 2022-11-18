@@ -9,8 +9,13 @@ const data = respond.data.records;
 </script>
 <template>
   <div class="main-proposal">
-    <div class="proposal_result_content" v-for="item in data" :key="item.id">
+    <div
+      class="proposal_result_content"
+      v-for="(item, index) in data"
+      :key="item.id"
+    >
       <p class="case_name">
+        <span>{{ index + 1 }}.</span>
         {{ item.fields.提案名稱 }}
       </p>
       <div class="case_info">
@@ -26,18 +31,8 @@ const data = respond.data.records;
 </template>
 <style scoped lang="scss">
 .main-proposal {
+  width: 100%;
   overflow: auto;
-  @include breakpoint($lg) {
-    width: 100%;
-  }
-}
-
-.navbar-expand-lg .side_nav {
-  @include breakpoint($lg) {
-    width: calc(100% - 300px);
-    margin-left: auto;
-    padding-top: unset;
-  }
 }
 .proposal_result_content {
   display: flex;

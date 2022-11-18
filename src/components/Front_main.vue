@@ -9,8 +9,6 @@ const respond = await GET(
   "/%E5%90%84%E8%B3%87%E6%96%99%E6%95%B8%E9%87%8F?maxRecords=100&view=Grid%20view"
 );
 const data = respond.data.records;
-const data1 = data[0].fields.資料數量;
-const data2 = data[13].fields.資料數量;
 </script>
 <template>
   <Title />
@@ -28,23 +26,23 @@ const data2 = data[13].fields.資料數量;
     >
       <div>
         <div>
-          <p>12</p>
+          <p>{{ data[12].fields.資料數量 }}</p>
           <h2>法律主提案</h2>
         </div>
         <div>
-          <p>12</p>
+          <p>{{ data[11].fields.資料數量 }}</p>
           <h2>法律共同提案</h2>
         </div>
         <div>
-          <p>98</p>
+          <p>{{ data[10].fields.資料數量 }}</p>
           <h2>書面質詢</h2>
         </div>
         <div>
-          <p>18</p>
+          <p>{{ data[9].fields.資料數量 }}</p>
           <h2>口頭質詢</h2>
         </div>
         <div>
-          <p>98</p>
+          <p>{{ data[8].fields.資料數量 }}</p>
           <h2>其他國會發言</h2>
         </div>
       </div>
@@ -110,7 +108,7 @@ const data2 = data[13].fields.資料數量;
       data-bs-target="#exampleModalFullscreen3"
     >
       <div>
-        <p>{{ data1 }}</p>
+        <p>{{ data[0].fields.資料數量 }}</p>
         <h2>陳情案件</h2>
       </div>
       <div class="details">
@@ -170,7 +168,7 @@ const data2 = data[13].fields.資料數量;
     </div>
     <div class="test3" data-bs-toggle="modal" data-bs-target="#Survey">
       <div>
-        <p>{{ data2 }}</p>
+        <p>{{ data[13].fields.資料數量 }}</p>
         <h2>會勘及地方建設</h2>
       </div>
       <div class="details">
@@ -520,6 +518,11 @@ const data2 = data[13].fields.資料數量;
   background: url(../assets/images/press-conference-bg.png) no-repeat -26px 18px
     #f6f6f6;
   background-size: 507px 308px;
+  .details,
+  .details_hover {
+    right: 50%;
+    transform: translateX(50%);
+  }
   @include breakpoint($xl) {
     background-size: 672px 395.95px;
     background-position: -148px 32.03px;
@@ -527,11 +530,6 @@ const data2 = data[13].fields.資料數量;
   > div {
     @include breakpoint($xl) {
       text-align: center;
-      .details,
-      .details_hover {
-        right: 50%;
-        transform: translateX(50%);
-      }
     }
   }
 }

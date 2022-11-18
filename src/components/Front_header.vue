@@ -73,6 +73,9 @@ h1 {
     z-index: 1;
     max-width: 766.08px;
     top: 150px;
+    right: -150.73px;
+  }
+  @include breakpoint($xxl) {
     right: 7.73px;
   }
   img {
