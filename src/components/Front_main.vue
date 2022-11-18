@@ -1,8 +1,9 @@
 <script setup>
 import { GET } from "@/api/api.js";
 import Title from "./Title.vue";
-import Modal from "./Modal.vue";
 import PetitionCase from "./PetitionCase.vue";
+import CharitableActivity from "./CharitableActivity.vue";
+import PressConference from "./PressConference.vue";
 import Survey from "./Survey.vue";
 import { CountTo } from "vue3-count-to";
 import { ref } from "vue";
@@ -31,9 +32,16 @@ const data12 = ref(data[11].fields.資料數量);
   <Suspense>
     <Survey />
   </Suspense>
+  <Suspense>
+    <CharitableActivity />
+  </Suspense>
+  <Suspense>
+    <PetitionCase />
+  </Suspense>
+  <Suspense>
+    <PressConference />
+  </Suspense>
 
-  <Modal />
-  <PetitionCase />
   <div class="card_container">
     <div
       class="test1"
@@ -257,11 +265,7 @@ const data12 = ref(data[11].fields.資料數量);
         </svg>
       </div>
     </div>
-    <div
-      class="test4"
-      data-bs-toggle="modal"
-      data-bs-target="#exampleModalFullscreen2"
-    >
+    <div class="test4" data-bs-toggle="modal" data-bs-target="#PressConference">
       <div>
         <p>
           <countTo :startVal="0" :endVal="data7" :duration="4000"></countTo>
@@ -327,7 +331,7 @@ const data12 = ref(data[11].fields.資料數量);
     <div
       class="test5"
       data-bs-toggle="modal"
-      data-bs-target="#exampleModalFullscreen2"
+      data-bs-target="#CharitableActivity"
     >
       <div>
         <p>

@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue";
+import Representative from "./Survey/Representative.vue";
 import FirstSession from "../components/Survey/FirstSession.vue";
 import SecondSession from "../components/Survey/SecondSession.vue";
 import ThirdSession from "../components/Survey/ThirdSession.vue";
@@ -15,6 +16,7 @@ const data = respond.data.records;
 const currentTab = ref("FirstSession");
 
 const tabs = {
+  Representative,
   FirstSession,
   SecondSession,
   ThirdSession,
@@ -49,9 +51,10 @@ const tabs = {
               <div class="side_nav-active">
                 <a
                   href="##"
-                  :class="{ active: currentTab === 'FirstSession' }"
-                  @click="currentTab = 'FirstSession'"
-                  ><span>第一期</span><span>{{ data[1].fields.資料數量 }}</span>
+                  :class="{ active: currentTab === 'Representative' }"
+                  @click="currentTab = 'Representative'"
+                  ><span>會勘及地方建設</span><span>(第一期)</span
+                  ><span>{{ data[1].fields.資料數量 }}</span>
                 </a>
                 <button
                   class="navbar-toggler"
@@ -68,15 +71,24 @@ const tabs = {
               <div class="collapse" id="navbarText">
                 <a
                   href="##"
+                  :class="{ active: currentTab === 'FirstSession' }"
+                  @click="currentTab = 'FirstSession'"
+                  ><span>會勘及地方建設</span><span>(第一期)</span
+                  ><span>{{ data[1].fields.資料數量 }}</span>
+                </a>
+                <a
+                  href="##"
                   :class="{ active: currentTab === 'SecondSession' }"
                   @click="currentTab = 'SecondSession'"
-                  ><span>第二期</span><span>{{ data[2].fields.資料數量 }}</span>
+                  ><span>會勘及地方建設</span><span>(第二期)</span
+                  ><span>{{ data[2].fields.資料數量 }}</span>
                 </a>
                 <a
                   href="##"
                   :class="{ active: currentTab === 'ThirdSession' }"
                   @click="currentTab = 'ThirdSession'"
-                  ><span>第三期</span><span>{{ data[3].fields.資料數量 }}</span>
+                  ><span>會勘及地方建設</span><span>(第三期)</span
+                  ><span>{{ data[3].fields.資料數量 }}</span>
                 </a>
                 <a
                   href="##"

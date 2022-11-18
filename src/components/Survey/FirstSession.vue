@@ -8,7 +8,7 @@ const respond = await GET(
 const data = respond.data.records;
 </script>
 <template>
-  <div class="main-proposal">
+  <div class="FirstSession">
     <div v-for="item in data" :key="item.id">
       <h2>{{ item.fields.結論 }}</h2>
       <h2>{{ item.fields.內容 }}</h2>
@@ -20,7 +20,7 @@ const data = respond.data.records;
   </div>
 </template>
 <style scoped lang="scss">
-.main-proposal {
+.FirstSession {
   overflow: auto;
   @include breakpoint($lg) {
     width: 100%;
