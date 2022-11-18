@@ -461,7 +461,6 @@ const value2 = () => {
   }
   @include breakpoint($xxl) {
     grid-template-columns: 25.9vw 15.2vw 9.3vw 25.9vw;
-    gap: 2vw;
   }
   > div:nth-child(n) {
     position: relative;
