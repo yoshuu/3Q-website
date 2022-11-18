@@ -2,12 +2,50 @@
 <template>
   <div class="footer_container">
     <div class="article_container">
-      <span>
-        我不是完人，一定會有犯錯的時候，得承認反覆檢討並不好受，但我很清楚有多少人的期望在我身上，而我不能辜負這些託付，我不能說我特別累，事實上每一個想實踐理想的政治人物，都是這樣過生活。這是我對每一位幫助過我的、每一位投過我票的，能做出的最大感謝。 </span
-      ><span
-        >明天起床依然要在前線作戰，面對這個世界光怪陸離的事情，我會繼續勇敢奮戰。</span
-      ><br /><span>我是台灣基進的立法委員3Q陳柏惟。</span
-      ><span>大風大浪， 一起前行。</span>
+      <div class="footer_slogan">
+        <h3 class="footer_slogan_title">盡忠職守，問心無愧</h3>
+        <div class="footer_slogan_content">
+          <p>
+            無論您喜歡或討厭我，都邀請您出來投票，<br />
+            我們支持的是台灣、是民主，<br />
+            讓我們用選票說出自己的聲音，讓台灣再贏一次！
+          </p>
+          <br />
+          <p>我是台灣基進的立法委員-陳柏惟。大風大浪，一起前行，3Q！</p>
+        </div>
+      </div>
+      <div class="office_container">
+        <div>
+          <h4>國會研究室：</h4>
+          <a href="tel:+(02)2358-8156">(02)2358-8156</a>
+          <p>100-224 臺北市中正區濟南路一段3-1號0708室</p>
+        </div>
+        <div>
+          <h4>烏日服務處：</h4>
+          <a href="tel:+(04)2337-7383">(04)2337-7383</a>
+          <p>414-603 臺中市烏日區中山路一段525號</p>
+        </div>
+        <div>
+          <h4>沙鹿服務處：</h4>
+          <a href="tel:+(04)2662-0913">(04)2662-0913</a>
+          <p>433-107 臺中市沙鹿區中山路537號</p>
+        </div>
+        <div>
+          <h4>霧峰服務處：</h4>
+          <a href="tel:+(04)2330-5663">(04)2330-5663</a>
+          <p>413-007 臺中市霧峰區文化巷57號</p>
+        </div>
+        <div>
+          <h4>大肚服務處：</h4>
+          <a href="tel:+(04)2699-8903">(04)2699-8903</a>
+          <p>432-011 臺中市大肚區自由路148號</p>
+        </div>
+        <div>
+          <h4>龍井中央路服務處：</h4>
+          <a href="tel:+2639-1163">(04)2639-1163</a>
+          <p>434-008 臺中市龍井區中央路三段169號</p>
+        </div>
+      </div>
     </div>
     <div class="community_list">
       <div class="community_add">
@@ -89,9 +127,39 @@
     padding: 48px 50px 50px 556px;
   }
 }
+
 .article_container {
   display: flex;
   flex-direction: column;
+  .footer_slogan {
+    &_title {
+      font-size: 24px;
+      font-weight: 700;
+    }
+    &_content {
+      margin: 24px 0;
+    }
+  }
+  .office_container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    h4 {
+      font-size: 16px;
+      font-weight: 700;
+    }
+    a {
+      color: $primary;
+    }
+
+    > div {
+      flex-basis: 100%;
+      @include breakpoint($xl) {
+        flex-basis: calc(50% - 10px);
+      }
+    }
+  }
 }
 .community_list {
   display: flex;

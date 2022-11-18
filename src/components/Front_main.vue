@@ -556,6 +556,11 @@ const data12 = ref(data[11].fields.資料數量);
   background: url(../assets/images/press-conference-bg.png) no-repeat -26px 18px
     #f6f6f6;
   background-size: 507px 308px;
+  .details,
+  .details_hover {
+    right: 50%;
+    transform: translateX(50%);
+  }
   @include breakpoint($xl) {
     background-size: 672px 395.95px;
     background-position: -148px 32.03px;
@@ -563,11 +568,6 @@ const data12 = ref(data[11].fields.資料數量);
   > div {
     @include breakpoint($xl) {
       text-align: center;
-      .details,
-      .details_hover {
-        right: 50%;
-        transform: translateX(50%);
-      }
     }
   }
 }

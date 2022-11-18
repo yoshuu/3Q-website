@@ -27,7 +27,7 @@ const tabs = {
 
 <template>
   <div class="Side_nav_box">
-    <nav class="navbar-expand-lg side_nav">
+    <nav class="navbar-expand-xl side_nav">
       <div class="side_nav-active">
         <a
           href="##"
@@ -81,10 +81,9 @@ const tabs = {
 </template>
 <style lang="scss" scoped>
 .side_nav {
-  position: fixed;
   width: 100%;
   background-color: $primary;
-  @include breakpoint($lg) {
+  @include breakpoint($xl) {
     max-width: 300px;
     height: 100%;
   }
@@ -102,7 +101,7 @@ const tabs = {
   padding: 17.5px 16px;
   font-size: 17px;
   font-weight: bold;
-  @include breakpoint($lg) {
+  @include breakpoint($xl) {
     display: flex;
     justify-content: space-between;
     font-size: 24px;
@@ -128,18 +127,16 @@ const tabs = {
   padding-left: 8px;
 }
 .collapse {
-  @include breakpoint($lg) {
+  @include breakpoint($xl) {
     display: block !important;
   }
 }
-
 .Side_nav_box {
   height: 100%;
-  @include breakpoint($lg) {
+  @include breakpoint($xl) {
     display: flex;
   }
 }
-
 .side_nav .active {
   color: $primary;
   background: white;
