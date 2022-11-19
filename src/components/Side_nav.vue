@@ -109,7 +109,7 @@ defineProps(["flag"]);
           href="##"
           :class="[{ active: currentTab === 'OtherSpeeches' }]"
           @click="currentTab = 'OtherSpeeches'"
-          ><span>其他國會語言</span
+          ><span>其他國會發言</span
           ><span>
             <countTo
               v-if="flag"
