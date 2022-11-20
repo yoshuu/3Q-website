@@ -83,7 +83,7 @@ const tabs = {
                   :class="{ active: currentTab === 'FirstSession' }"
                   @click="currentTab = 'FirstSession'"
                 >
-                  <span>第一期</span>
+                  <span>會勘及地方建設 <br />(第一期)</span>
                   <span
                     ><countTo
                       v-if="flag"
@@ -104,7 +104,9 @@ const tabs = {
                   href="##"
                   :class="{ active: currentTab === 'SecondSession' }"
                   @click="currentTab = 'SecondSession'"
-                  ><span>第二期</span
+                  ><span
+                    >會勘及地方建設 <br />
+                    (第二期)</span
                   ><span
                     ><countTo
                       v-if="flag"
@@ -125,7 +127,7 @@ const tabs = {
                   href="##"
                   :class="{ active: currentTab === 'ThirdSession' }"
                   @click="currentTab = 'ThirdSession'"
-                  ><span>第三期</span
+                  ><span>會勘及地方建設 <br />(第三期)</span
                   ><span
                     ><countTo
                       v-if="flag"
@@ -146,7 +148,7 @@ const tabs = {
                   href="##"
                   :class="{ active: currentTab === 'Main' }"
                   @click="currentTab = 'Main'"
-                  ><span>主要</span
+                  ><span>總覽</span
                   ><span>
                     <countTo
                       v-if="flag"
