@@ -27,9 +27,8 @@ const breakLine = (s) => {
 };
 let isShow = ref(false);
 
-function test(apple) {
+function isShowChange() {
   isShow.value = !isShow.value;
-  this[apple]();
 }
 </script>
 <template>
@@ -107,7 +106,7 @@ function test(apple) {
                         <button
                           class="count_more"
                           :class="{ aaa: isShow }"
-                          @click="test(data.id)"
+                          @click="isShowChange(data.id)"
                         >
                           <p>+{{ item.fields.照片.length - 4 }}</p>
                         </button>
@@ -117,7 +116,7 @@ function test(apple) {
                         <button
                           :class="{ aaa: isShow }"
                           class="count_more"
-                          @click="test(data.id)"
+                          @click="isShowChange(data.id)"
                           v-if="item.fields.照片.length > 6"
                         >
                           <p>+{{ item.fields.照片.length - 5 }}</p>
