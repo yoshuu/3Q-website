@@ -21,7 +21,7 @@ const data3 = data[2].fields.資料數量;
 const data4 = data[3].fields.資料數量;
 const data5 = data[13].fields.資料數量;
 
-const currentTab = ref("FirstSession");
+const currentTab = ref("Representative");
 
 const tabs = {
   Representative,
