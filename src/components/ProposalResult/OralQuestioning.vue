@@ -41,7 +41,7 @@ const filterData = computed(() => {
 });
 </script>
 <template>
-  <div class="main-proposal">
+  <div class="oral_questioning">
     <select v-model="input.主辦單位">
       <option value="主辦單位" disabled>主辦單位</option>
       <option value="院會">院會</option>
@@ -55,7 +55,7 @@ const filterData = computed(() => {
       <option value="社會福利及衛生環境委員會">社會福利及衛生環境委員會</option>
     </select>
     <div
-      class="proposal_result_content"
+      class="oral_questioning_content"
       v-for="item in filterData"
       :key="item.id"
     >
@@ -98,11 +98,11 @@ const filterData = computed(() => {
   </div>
 </template>
 <style scoped lang="scss">
-.main-proposal {
+.oral_questioning {
   width: 100%;
   overflow: auto;
 }
-.proposal_result_content {
+.oral_questioning_content {
   display: flex;
   flex-direction: column;
   gap: 16px;
