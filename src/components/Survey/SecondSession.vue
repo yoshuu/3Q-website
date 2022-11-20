@@ -1,7 +1,7 @@
 <script setup>
 // 第二會期
 import { GET } from "@/api/api.js";
-import { ref } from "vue";
+import { ref, reactive, computed } from "vue";
 const respond = await GET(
   "/%E6%9C%83%E5%8B%98%E5%8F%8A%E5%9C%B0%E6%96%B9%E5%BB%BA%E8%A8%AD(%E7%AC%AC%E4%BA%8C%E6%9C%83%E6%9C%9F)?maxRecords=50&view=Grid%20view"
 );
@@ -15,10 +15,52 @@ const breakLine = (s) => {
   }
 };
 const isShow = ref(true);
+const input = reactive({
+  性質: "性質",
+});
+
+const input2 = reactive({
+  區域: "區域",
+});
+
+const filterData = computed(() => {
+  if (input.性質 === "性質" || input2.區域 === "區域") {
+    return data;
+  } else {
+    return data.filter((item) => {
+      return (
+        item.fields.性質 === input.性質 || item.fields.區域 === input2.區域
+      );
+    });
+  }
+});
 </script>
 <template>
   <div class="SecondSession">
-    <div class="representative_content" v-for="item in data" :key="item.id">
+    <select v-model="input.性質">
+      <option value="性質" disabled>性質</option>
+      <option value="性質">全部</option>
+      <option value="會勘">會勘</option>
+      <option value="協調會">協調會</option>
+      <option value="霧峰">爭取地方發展</option>
+      <option value="沙鹿">公聽會</option>
+    </select>
+    <select v-model="input2.區域">
+      <option value="區域" disabled>區域</option>
+      <option value="區域">全部</option>
+      <option value="霧峰">霧峰</option>
+      <option value="霧峰">霧峰</option>
+      <option value="沙鹿">沙鹿</option>
+      <option value="大肚">大肚</option>
+      <option value="烏日">烏日</option>
+      <option value="龍井">龍井</option>
+      <option value="其他">其他</option>
+    </select>
+    <div
+      class="representative_content"
+      v-for="item in filterData"
+      :key="item.id"
+    >
       <div class="case_container">
         <p class="case_name">
           {{ item.fields.內容 }}
