@@ -50,7 +50,11 @@
     <div class="community_list">
       <div class="community_add">
         <p>加入</p>
-        <a class="community_add_line" href="https://lin.ee/B4TeoDx">
+        <a
+          target="_blank"
+          class="community_add_line"
+          href="https://lin.ee/B4TeoDx"
+        >
           <svg
             width="36"
             height="36"
@@ -64,7 +68,7 @@
           </svg>
         </a>
         <a
-          target="_target"
+          target="_blank"
           class="community_add_facebook"
           href="https://www.facebook.com/3Q.PehUi"
         >
@@ -85,8 +89,7 @@
       <div class="community_share">
         <p>分享至</p>
         <a
-          target="_target"
-          data-size="small"
+          target="_blank"
           href="https://social-plugins.line.me/lineit/share?url=http://192.168.0.102:5173/
 "
         >
@@ -103,7 +106,7 @@
           </svg>
         </a>
         <a
-          target="_target"
+          target="_blank"
           href="https://www.facebook.com/sharer/sharer.php?kid_directed_site=0&sdk=joey&u=http%3A%2F%2F192.168.0.102%3A5173%2F&display=popup&ref=plugin&src=share_button"
         >
           <svg
