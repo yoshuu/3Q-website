@@ -30,12 +30,14 @@ const tabs = {
   OralInterpellation,
 };
 
+const apple = ref(true);
+
 defineProps(["flag"]);
 </script>
 <template>
   <div class="Side_nav_box">
     <nav class="navbar-expand-xl side_nav">
-      <div class="side_nav-active">
+      <div class="collapse link_container" id="navbarText">
         <a
           href="##"
           :class="{ active: currentTab === 'MainProposal' }"
@@ -50,7 +52,7 @@ defineProps(["flag"]);
             ></countTo
           ></span>
         </a>
-        <button
+        <a
           class="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
@@ -58,17 +60,12 @@ defineProps(["flag"]);
           aria-controls="navbarText"
           aria-expanded="false"
           aria-label="Toggle navigation"
-        >
-          <i class="fa-solid fa-caret-down"></i>
-        </button>
-      </div>
-      <div class="collapse" id="navbarText">
-        <a
           href="##"
           :class="{ active: currentTab === 'JointProposal' }"
           @click="currentTab = 'JointProposal'"
-          ><span>法律共同提案</span
-          ><span
+        >
+          <span>法律共同提案</span>
+          <span
             ><countTo
               v-if="flag"
               :startVal="0"
@@ -78,6 +75,13 @@ defineProps(["flag"]);
           ></span>
         </a>
         <a
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarText"
+          aria-controls="navbarText"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
           href="##"
           :class="{ active: currentTab === 'OralInterpellation' }"
           @click="currentTab = 'OralInterpellation'"
@@ -92,6 +96,13 @@ defineProps(["flag"]);
           ></span>
         </a>
         <a
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarText"
+          aria-controls="navbarText"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
           href="##"
           :class="{ active: currentTab === 'OralQuestioning' }"
           @click="currentTab = 'OralQuestioning'"
@@ -106,8 +117,15 @@ defineProps(["flag"]);
           ></span>
         </a>
         <a
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarText"
+          aria-controls="navbarText"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
           href="##"
-          :class="[{ active: currentTab === 'OtherSpeeches' }]"
+          :class="{ active: currentTab === 'OtherSpeeches' }"
           @click="currentTab = 'OtherSpeeches'"
           ><span>其他國會發言</span
           ><span>
@@ -119,6 +137,17 @@ defineProps(["flag"]);
             ></countTo>
           </span>
         </a>
+        <div
+          class="navbar-toggler arrow_box"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarText"
+          aria-controls="navbarText"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fa-solid fa-caret-down"></i>
+        </div>
       </div>
     </nav>
     <Suspense>
@@ -128,6 +157,7 @@ defineProps(["flag"]);
 </template>
 <style lang="scss" scoped>
 .side_nav {
+  display: flex;
   width: 100%;
   background-color: $primary;
   @include breakpoint($xl) {
@@ -138,10 +168,6 @@ defineProps(["flag"]);
 .side_nav a,
 .side_nav-active button {
   color: white;
-  &:focus {
-    color: $primary;
-    background: white;
-  }
 }
 .side_nav a {
   display: block;
@@ -157,25 +183,27 @@ defineProps(["flag"]);
 }
 .side_nav div + div,
 .side_nav a,
-.side_nav-active button {
+.side_nav button {
   border-bottom: 1px solid white;
 }
-.side_nav-active {
-  display: flex;
-  justify-content: space-between;
-  a {
-    flex-grow: 1;
-  }
-  i {
-    padding: 16px;
-  }
+.side_nav button {
+  width: 30px;
+  height: 54px;
 }
 .side_nav a span + span {
   padding-left: 8px;
 }
-.collapse {
+.link_container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
   @include breakpoint($xl) {
-    display: block !important;
+    display: block;
+  }
+  a {
+    width: 100%;
   }
 }
 .Side_nav_box {
@@ -185,7 +213,36 @@ defineProps(["flag"]);
   }
 }
 .side_nav .active {
-  color: $primary;
-  background: white;
+  order: -1;
+  @include breakpoint($xl) {
+    color: $primary;
+    background: white;
+  }
+}
+
+.collapse:not(.show) {
+  display: flex;
+  height: 54px;
+  overflow: hidden;
+  @include breakpoint($xl) {
+    height: 100%;
+    display: block;
+  }
+}
+.collapsing {
+  height: 54px;
+  overflow: hidden;
+  @include breakpoint($xl) {
+    height: 100%;
+  }
+}
+
+.arrow_box {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  text-align: end;
+  padding: 16px 16px 16px 0;
+  color: white;
 }
 </style>

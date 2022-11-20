@@ -19,8 +19,7 @@ defineProps(["flag"]);
             立院成果
             <span
               >想知道更多問政成果嗎？歡迎至
-              <a
-                href="https://docs.google.com/spreadsheets/d/1Hcp9VOefbP23FeBwgqXLXDAfQ_3msOD8yS6Wk1ICXhA/edit#gid=0&range=D2"
+              <a target="_blank" href="https://npl.ly.gov.tw/do/www/homePage"
                 >立法院國會圖書館</a
               >
               之「立委問政專輯」查看，3Q！」

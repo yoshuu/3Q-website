@@ -1,5 +1,6 @@
 <script setup>
 // 口頭質詢
+import { reactive, computed } from "vue";
 import { GET } from "@/api/api.js";
 
 const respond = await GET(
@@ -24,10 +25,40 @@ const breakLine = (s) => {
     return s.split("\n");
   }
 };
+
+const input = reactive({
+  主辦單位: "主辦單位",
+});
+
+const filterData = computed(() => {
+  if (input.主辦單位 === "主辦單位") {
+    return data;
+  } else {
+    return data.filter((item) => {
+      return item.fields.主辦單位 === input.主辦單位;
+    });
+  }
+});
 </script>
 <template>
-  <div class="main-proposal">
-    <div class="proposal_result_content" v-for="item in data" :key="item.id">
+  <div class="oral_questioning">
+    <select v-model="input.主辦單位">
+      <option value="主辦單位" disabled>主辦單位</option>
+      <option value="院會">院會</option>
+      <option value="財政委員會">財政委員會</option>
+      <option value="內政委員會">內政委員會</option>
+      <option value="交通委員會">交通委員會</option>
+      <option value="經濟委員會">經濟委員會</option>
+      <option value="外交及國防委員會">外交及國防委員會</option>
+      <option value="司法及法制委員會">司法及法制委員會</option>
+      <option value="教育及文化委員會">教育及文化委員會</option>
+      <option value="社會福利及衛生環境委員會">社會福利及衛生環境委員會</option>
+    </select>
+    <div
+      class="oral_questioning_content"
+      v-for="item in filterData"
+      :key="item.id"
+    >
       <div
         v-if="Youtube(item.fields?.['YT連結/資料連結']) == true"
         class="video_container"
@@ -67,11 +98,11 @@ const breakLine = (s) => {
   </div>
 </template>
 <style scoped lang="scss">
-.main-proposal {
+.oral_questioning {
   width: 100%;
   overflow: auto;
 }
-.proposal_result_content {
+.oral_questioning_content {
   display: flex;
   flex-direction: column;
   gap: 16px;

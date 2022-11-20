@@ -1,19 +1,33 @@
 <script setup>
-//主辦記者會 => 全國性活動
+import { ref } from "vue";
+import NationalEvent from "./PressConference/NationalEvent.vue";
+import RepresentativeActivities from "./PressConference/RepresentativeActivities.vue";
+import { CountTo } from "vue3-count-to";
 import { GET } from "@/api/api.js";
+defineProps(["flag3"]);
 
 const respond = await GET(
-  "/%E5%85%A8%E5%9C%8B%E6%80%A7%E6%B4%BB%E5%8B%95?maxRecords=3&view=Grid%20view"
+  "https://api.airtable.com/v0/app4NIZthoTlA3i05/%E5%90%84%E8%B3%87%E6%96%99%E6%95%B8%E9%87%8F?maxRecords=30&view=Grid%20view"
 );
-const data = respond.data.records;
-</script>
 
+const data = respond.data.records;
+
+const data1 = data[6].fields.資料數量;
+const data2 = data[12].fields.資料數量;
+
+const currentTab = ref("NationalEvent");
+
+const tabs = {
+  NationalEvent,
+  RepresentativeActivities,
+};
+</script>
 <template>
   <div
     class="modal fade"
     id="PressConference"
     tabindex="-1"
-    aria-labelledby=""
+    aria-labelledby="exampleModalFullscreenLabel"
     aria-hidden="true"
     style="display: none"
   >
@@ -29,10 +43,55 @@ const data = respond.data.records;
           ></button>
         </div>
         <div class="modal-body p-0">
-          <div class="Side_nav_box" v-for="item in data" :key="item.id">
-            <h2>日期：{{ item.fields.日期 }}</h2>
-            <h2>類別：{{ item.fields.名稱 }}</h2>
-            <h2>性質：{{ item.fields.性質 }}</h2>
+          <div class="Side_nav_box">
+            <nav class="navbar-expand-lg side_nav">
+              <div class="side_nav-active">
+                <a
+                  href="##"
+                  :class="{ active: currentTab === 'NationalEvent' }"
+                  @click="currentTab = 'NationalEvent'"
+                  ><span>全國性活動</span>
+                  <span
+                    ><countTo
+                      v-if="flag2"
+                      :startVal="0"
+                      :endVal="data1"
+                      :duration="3000"
+                    ></countTo
+                  ></span>
+                </a>
+                <button
+                  class="navbar-toggler"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#navbarText"
+                  aria-controls="navbarText"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
+                  <i class="fa-solid fa-caret-down"></i>
+                </button>
+              </div>
+              <div class="collapse" id="navbarText">
+                <a
+                  href="##"
+                  :class="{ active: currentTab === 'RepresentativeActivities' }"
+                  @click="currentTab = 'RepresentativeActivities'"
+                  ><span>代表性全國活動</span
+                  ><span
+                    ><countTo
+                      v-if="flag2"
+                      :startVal="0"
+                      :endVal="data2"
+                      :duration="3000"
+                    ></countTo
+                  ></span>
+                </a>
+              </div>
+            </nav>
+            <Suspense>
+              <component :is="tabs[currentTab]"></component>
+            </Suspense>
           </div>
         </div>
       </div>
@@ -47,12 +106,7 @@ const data = respond.data.records;
     font-weight: bold;
     font-size: 24px;
     color: white;
-    span {
-      margin-left: 16px;
-      vertical-align: middle;
-      font-size: 12px;
-    }
-    @include breakpoint($xl) {
+    @include breakpoint($lg) {
       font-size: 36px;
     }
   }
@@ -76,5 +130,68 @@ const data = respond.data.records;
   &:focus {
     box-shadow: unset;
   }
+}
+
+.side_nav {
+  background-color: $primary;
+  @include breakpoint($lg) {
+    max-width: 300px;
+    height: 100%;
+    width: 30%;
+  }
+}
+.side_nav a,
+.side_nav-active button {
+  color: white;
+  &:focus {
+    color: $primary;
+    background: white;
+  }
+}
+.side_nav a {
+  display: block;
+  padding: 17.5px 16px;
+  font-size: 17px;
+  font-weight: bold;
+  @include breakpoint($lg) {
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+    padding: 22.5px 30px;
+  }
+}
+.side_nav div + div,
+.side_nav a + a {
+  border-top: 1px solid white;
+}
+.side_nav-active {
+  display: flex;
+  justify-content: space-between;
+  a {
+    flex-grow: 1;
+  }
+  i {
+    padding: 16px;
+  }
+}
+.side_nav a span + span {
+  padding-left: 8px;
+}
+.collapse {
+  @include breakpoint($lg) {
+    display: block !important;
+  }
+}
+
+.Side_nav_box {
+  height: 100%;
+  @include breakpoint($lg) {
+    display: flex;
+  }
+}
+
+.side_nav .active {
+  color: $primary;
+  background: white;
 }
 </style>
