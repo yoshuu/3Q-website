@@ -25,7 +25,12 @@ const breakLine = (s) => {
     return s.split("\n");
   }
 };
-const isShow = ref(true);
+let isShow = ref(false);
+
+function test(apple) {
+  isShow.value = !isShow.value;
+  this[apple]();
+}
 </script>
 <template>
   <div
@@ -94,19 +99,25 @@ const isShow = ref(true);
                   <div class="more" v-else>
                     <div
                       v-for="(data, index) in item.fields.照片"
-                      :key="index"
+                      :key="data.id"
                       :class="{ fourth_pic: index == 3, more_pic: index == 4 }"
                     >
                       <div v-if="index === 3">
                         <img :src="data.url" alt="" />
-                        <button class="count_more" @click="isShow = !isShow">
+                        <button
+                          class="count_more"
+                          :class="{ aaa: isShow }"
+                          @click="test(data.id)"
+                        >
                           <p>+{{ item.fields.照片.length - 4 }}</p>
                         </button>
                       </div>
                       <div v-else-if="index === 4" :class="{ show: isShow }">
                         <img :src="data.url" alt="" />
                         <button
+                          :class="{ aaa: isShow }"
                           class="count_more"
+                          @click="test(data.id)"
                           v-if="item.fields.照片.length > 6"
                         >
                           <p>+{{ item.fields.照片.length - 5 }}</p>
@@ -282,10 +293,15 @@ const isShow = ref(true);
     color: white;
     top: 0;
     background-color: rgba(0, 0, 0, 0.5);
+
     p {
       font-size: 20px;
     }
   }
+}
+
+.aaa {
+  opacity: 0;
 }
 .fourth_pic .count_more {
   @include breakpoint($xl) {
