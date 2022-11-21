@@ -1,11 +1,11 @@
 <script setup>
-import { reactive } from "vue";
+import { reactive, onBeforeUnmount, ref } from "vue";
 
 //取得時間
 let nowTime = reactive({
   data: "",
 });
-let myDate = new Date();
+let myDate = ref(new Date());
 function setTime(myDate) {
   const year = myDate.getFullYear();
   const month =
@@ -33,14 +33,27 @@ function setTime(myDate) {
     s +
     "秒";
 }
-function nowTimes() {
-  setTime(myDate);
-  setInterval(() => {
-    myDate = new Date();
-    setTime(myDate);
-  }, 1000);
-}
-nowTimes();
+
+// let a;
+// function nowTimes() {
+//   setTime(myDate);
+//   a = setInterval(() => {
+//     myDate = new Date();
+//     setTime(myDate);
+//   }, 1000);
+// }
+// nowTimes();
+
+setTime(myDate.value);
+const a = setInterval(() => {
+  myDate.value = new Date();
+  setTime(myDate.value);
+  // console.log("setInterval");
+}, 1000);
+
+onBeforeUnmount(() => {
+  clearInterval(a);
+});
 </script>
 <template>
   <div class="header_container">
@@ -49,7 +62,7 @@ nowTimes();
         <p>會說話</p>
         <p>會做事</p>
       </div>
-      <P>台灣基進立法委員</P>
+      <p>台灣基進立法委員</p>
       <h1>陳柏惟</h1>
     </div>
     <div class="people_info">
