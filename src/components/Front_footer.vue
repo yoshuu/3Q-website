@@ -1,12 +1,15 @@
 <script setup>
 import Calendar from "./Calendar.vue";
+import FormVue from "./Form.vue";
 </script>
 <template>
   <div class="footer_container">
     <div class="calendar-box">
       <Calendar />
     </div>
-
+    <div class="form-box">
+      <FormVue />
+    </div>
     <div class="article_container">
       <div class="footer_slogan">
         <h3 class="footer_slogan_title">盡忠職守，問心無愧</h3>
@@ -207,6 +210,15 @@ import Calendar from "./Calendar.vue";
   }
   img {
     width: 100%;
+  }
+}
+
+.form-box {
+  text-align: center;
+  @include breakpoint($xl) {
+    position: absolute;
+    top: 200px;
+    left: 50px;
   }
 }
 </style>
