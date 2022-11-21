@@ -83,7 +83,7 @@ const tabs = {
                   :class="{ active: currentTab === 'FirstSession' }"
                   @click="currentTab = 'FirstSession'"
                 >
-                  <span>會勘及地方建設 <br />(第一期)</span>
+                  <p><span>會勘及地方建設</span><span>(第一期)</span></p>
                   <span
                     ><countTo
                       v-if="flag2"
@@ -104,10 +104,9 @@ const tabs = {
                   href="##"
                   :class="{ active: currentTab === 'SecondSession' }"
                   @click="currentTab = 'SecondSession'"
-                  ><span
-                    >會勘及地方建設 <br />
-                    (第二期)</span
-                  ><span
+                >
+                  <p><span>會勘及地方建設</span><span>(第二期)</span></p>
+                  <span
                     ><countTo
                       v-if="flag2"
                       :startVal="0"
@@ -127,8 +126,9 @@ const tabs = {
                   href="##"
                   :class="{ active: currentTab === 'ThirdSession' }"
                   @click="currentTab = 'ThirdSession'"
-                  ><span>會勘及地方建設 <br />(第三期)</span
-                  ><span
+                >
+                  <p><span>會勘及地方建設</span><span>(第三期)</span></p>
+                  <span
                     ><countTo
                       v-if="flag2"
                       :startVal="0"
@@ -247,7 +247,7 @@ const tabs = {
   width: 30px;
   height: 54px;
 }
-.side_nav a span + span {
+.side_nav * + span {
   padding-left: 8px;
 }
 .link_container {
@@ -266,6 +266,12 @@ const tabs = {
     width: 100%;
     @include breakpoint($xl) {
       height: auto;
+    }
+    p {
+      @include breakpoint($xl) {
+        display: flex;
+        flex-direction: column;
+      }
     }
   }
 }
