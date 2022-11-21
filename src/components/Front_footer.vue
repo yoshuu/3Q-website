@@ -1,6 +1,12 @@
-<script setup></script>
+<script setup>
+import Calendar from "./Calendar.vue";
+</script>
 <template>
   <div class="footer_container">
+    <div class="calendar-box">
+      <Calendar />
+    </div>
+
     <div class="article_container">
       <div class="footer_slogan">
         <h3 class="footer_slogan_title">盡忠職守，問心無愧</h3>
@@ -129,6 +135,10 @@
   </div>
 </template>
 <style scoped lang="scss">
+.calendar-box {
+  text-align: center;
+  width: 100%;
+}
 .footer_container {
   position: relative;
   padding: 30px 16px 45px;

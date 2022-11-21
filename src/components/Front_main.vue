@@ -159,7 +159,7 @@ const value3 = () => {
             :duration="4000"
           ></countTo>
         </p>
-        <h2>陳情案件</h2>
+        <h2>選服陳情案件</h2>
       </div>
       <div class="details">
         <p>詳細內容</p>
