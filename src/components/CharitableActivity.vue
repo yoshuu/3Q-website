@@ -1,13 +1,18 @@
 <script setup>
 //活動及社會公益 => 地方公益活動
 import { GET } from "@/api/api.js";
-
 const respond = await GET(
   "/%E5%9C%B0%E6%96%B9%E5%85%AC%E7%9B%8A%E6%B4%BB%E5%8B%95?maxRecords=50&view=Grid%20view"
 );
 const data = respond.data.records;
+const breakLine = (s) => {
+  if (s == undefined) {
+    return;
+  } else {
+    return s.split("\n");
+  }
+};
 </script>
-
 <template>
   <div
     class="modal fade"
@@ -31,14 +36,87 @@ const data = respond.data.records;
           ></button>
         </div>
         <div class="modal-body p-0">
-          <div class="Side_nav_box" v-for="item in data" :key="item.id">
-            <p>{{ item.fields.活動內容 }}</p>
-            <p>{{ item.fields.性質 }}</p>
-            <p>{{ item.fields.活動地點 }}</p>
-            <p>{{ item.fields.活動區域 }}</p>
-            <p>{{ item.fields.活動時間 }}</p>
-            <p>{{ item.fields.標題1 }}</p>
-            <p>{{ item.fields.相關連結1 }}</p>
+          <div class="charitable_activity">
+            <div class="charitable_activity_header">
+              <div>活動名稱</div>
+              <div>活動區域</div>
+              <div>性質</div>
+              <div>活動時間</div>
+              <div>活動地點</div>
+              <div>合作單位</div>
+              <div>相關連結</div>
+              <div>活動內容</div>
+            </div>
+            <div
+              class="charitable_activity_content"
+              v-for="item in data"
+              :key="item.id"
+            >
+              <div>
+                <p class="">
+                  {{ item.fields.活動名稱 }}
+                </p>
+              </div>
+              <div>
+                <p class="">
+                  {{ item.fields.活動區域 }}
+                </p>
+              </div>
+              <div>
+                <p class="">
+                  {{ item.fields.性質 }}
+                </p>
+              </div>
+              <div>
+                <p class="">
+                  {{ item.fields.活動時間 }}
+                </p>
+              </div>
+              <div>
+                <p class="">
+                  {{ item.fields.活動地點 }}
+                </p>
+              </div>
+              <div>
+                <p class="">
+                  {{ item.fields.合作單位 }}
+                </p>
+              </div>
+              <div>
+                <div class="" v-if="item.fields.相關連結1">
+                  <div>
+                    <a target="_blank" :href="item.fields.相關連結1">
+                      {{ item.fields.標題1 }}
+                    </a>
+                  </div>
+                  <div v-if="item.fields.相關連結2">
+                    <a target="_blank" :href="item.fields.相關連結2">
+                      {{ item.fields.標題2 }}
+                    </a>
+                  </div>
+                  <div v-if="item.fields.相關連結3">
+                    <a target="_blank" :href="item.fields.相關連結3">
+                      {{ item.fields.標題3 }}
+                    </a>
+                  </div>
+                  <div v-if="item.fields.相關連結4">
+                    <a target="_blank" :href="item.fields.相關連結4">
+                      {{ item.fields.標題4 }}
+                    </a>
+                  </div>
+                  <div v-if="item.fields.相關連結5">
+                    <a target="_blank" :href="item.fields.相關連結5">
+                      {{ item.fields.標題5 }}
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div v-if="item.fields.活動內容" class="case_content">
+                <p v-for="item in breakLine(item.fields.活動內容)">
+                  {{ item }}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -81,6 +159,27 @@ const data = respond.data.records;
     center/1em auto no-repeat;
   &:focus {
     box-shadow: unset;
+  }
+}
+.charitable_activity {
+  background-color: $primary;
+  overflow: scroll;
+  width: 1920px;
+  @include breakpoint($xl) {
+    padding-left: 30px;
+  }
+  > div {
+    display: grid;
+    grid-template-columns: (15% 5% 5% 10% 5% 10% 5% 1fr);
+    width: 100%;
+    padding: 14.5px 16px;
+    font-size: 17px;
+    background-color: white;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  > div:nth-child(1) {
+    background-color: $primary;
+    color: white;
   }
 }
 </style>

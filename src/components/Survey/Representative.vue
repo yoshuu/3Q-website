@@ -42,8 +42,8 @@ const transfer = (s) => {
         ></iframe>
       </div>
       <div class="other_link" v-else-if="item.fields.相關連結 != undefined">
+        <p>相關連結：</p>
         <p>
-          <span>相關連結：</span>
           <a target="_blank" :href="item.fields.相關連結">
             {{ item.fields.相關連結 }}
           </a>
@@ -80,11 +80,7 @@ const transfer = (s) => {
     @include breakpoint($xl) {
       flex-shrink: 0;
     }
-    .case_name,
-    .case_content p:nth-child(1) {
-      font-size: 17px;
-      font-weight: 700;
-    }
+
     .case_info {
       font-size: 13px;
       color: #828282;
@@ -96,6 +92,12 @@ const transfer = (s) => {
       line-height: 30.6px;
     }
   }
+}
+.case_name,
+.case_content p:nth-child(1),
+.other_link p:nth-child(1) {
+  font-size: 17px;
+  font-weight: 700;
 }
 .other_link {
   order: 2;
