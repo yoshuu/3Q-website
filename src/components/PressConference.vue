@@ -64,7 +64,7 @@ const tabs = {
                   href="##"
                   :class="{ active: currentTab === 'RepresentativeActivities' }"
                   @click="currentTab = 'RepresentativeActivities'"
-                  ><span>代表性全國活動1</span
+                  ><span>代表性全國活動</span
                   ><span
                     ><countTo
                       v-if="flag3"

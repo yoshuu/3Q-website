@@ -119,22 +119,22 @@ h1 {
 
 .people_info {
   margin: -22px auto 0;
-  max-width: 360px;
-  min-height: 550px;
+  width: 85vw;
   @include breakpoint($xl) {
     position: absolute;
+    width: 53vw;
+    max-width: unset;
     z-index: 1;
-    max-width: 766.08px;
     top: 150px;
-    right: -150.73px;
+    right: 7.73px;
   }
   @include breakpoint($xxl) {
-    right: 7.73px;
+    top: 3.6vw;
   }
   img {
     width: 100%;
     transform: rotate(4.81deg);
-    object-fit: contain;
+    // object-fit: contain;
   }
 }
 
@@ -169,8 +169,8 @@ h1 {
   @include breakpoint($xl) {
     display: block;
     position: absolute;
-    top: 204px;
-    left: 408px;
+    top: 220px;
+    left: 450px;
   }
 }
 

@@ -42,18 +42,22 @@ const filterData = computed(() => {
 </script>
 <template>
   <div class="oral_questioning">
-    <select v-model="input.主辦單位">
-      <option value="主辦單位" disabled>主辦單位</option>
-      <option value="院會">院會</option>
-      <option value="財政委員會">財政委員會</option>
-      <option value="內政委員會">內政委員會</option>
-      <option value="交通委員會">交通委員會</option>
-      <option value="經濟委員會">經濟委員會</option>
-      <option value="外交及國防委員會">外交及國防委員會</option>
-      <option value="司法及法制委員會">司法及法制委員會</option>
-      <option value="教育及文化委員會">教育及文化委員會</option>
-      <option value="社會福利及衛生環境委員會">社會福利及衛生環境委員會</option>
-    </select>
+    <div class="select_list">
+      <select v-model="input.主辦單位" class="select_box">
+        <option value="主辦單位" disabled>主辦單位</option>
+        <option value="院會">院會</option>
+        <option value="財政委員會">財政委員會</option>
+        <option value="內政委員會">內政委員會</option>
+        <option value="交通委員會">交通委員會</option>
+        <option value="經濟委員會">經濟委員會</option>
+        <option value="外交及國防委員會">外交及國防委員會</option>
+        <option value="司法及法制委員會">司法及法制委員會</option>
+        <option value="教育及文化委員會">教育及文化委員會</option>
+        <option value="社會福利及衛生環境委員會">
+          社會福利及衛生環境委員會
+        </option>
+      </select>
+    </div>
     <div
       class="oral_questioning_content"
       v-for="item in filterData"
@@ -146,6 +150,26 @@ const filterData = computed(() => {
   order: 2;
   a {
     color: $primary;
+  }
+}
+.select_list {
+  display: flex;
+  padding: 12px 16px;
+  gap: 10px;
+  position: sticky;
+  @include breakpoint($xl) {
+    gap: 16px;
+    padding: 18px 30px;
+  }
+
+  .select_box {
+    width: calc(50% - 5px);
+    font-size: 17px;
+    padding: 9.5px 8px;
+    border: 1px solid $primary;
+    @include breakpoint($xl) {
+      width: auto;
+    }
   }
 }
 </style>

@@ -53,37 +53,37 @@ const breakLine = (s) => {
               :key="item.id"
             >
               <div>
-                <p class="">
+                <p>
                   {{ item.fields.活動名稱 }}
                 </p>
               </div>
               <div>
-                <p class="">
+                <p>
                   {{ item.fields.活動區域 }}
                 </p>
               </div>
               <div>
-                <p class="">
+                <p>
                   {{ item.fields.性質 }}
                 </p>
               </div>
               <div>
-                <p class="">
+                <p>
                   {{ item.fields.活動時間 }}
                 </p>
               </div>
               <div>
-                <p class="">
+                <p>
                   {{ item.fields.活動地點 }}
                 </p>
               </div>
               <div>
-                <p class="">
+                <p>
                   {{ item.fields.合作單位 }}
                 </p>
               </div>
               <div>
-                <div class="" v-if="item.fields.相關連結1">
+                <div v-if="item.fields.相關連結1">
                   <div>
                     <a target="_blank" :href="item.fields.相關連結1">
                       {{ item.fields.標題1 }}

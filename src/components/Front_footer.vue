@@ -1,6 +1,15 @@
-<script setup></script>
+<script setup>
+import Calendar from "./Calendar.vue";
+import FormVue from "./Form.vue";
+</script>
 <template>
   <div class="footer_container">
+    <div class="calendar-box">
+      <Calendar />
+    </div>
+    <div class="form-box">
+      <FormVue />
+    </div>
     <div class="article_container">
       <div class="footer_slogan">
         <h3 class="footer_slogan_title">盡忠職守，問心無愧</h3>
@@ -90,8 +99,7 @@
         <p>分享至</p>
         <a
           target="_blank"
-          href="https://social-plugins.line.me/lineit/share?url=http://192.168.0.102:5173/
-"
+          href="https://social-plugins.line.me/lineit/share?url=https://yoshuu.github.io/3Q-website/"
         >
           <svg
             width="36"
@@ -107,14 +115,14 @@
         </a>
         <a
           target="_blank"
-          href="https://www.facebook.com/sharer/sharer.php?kid_directed_site=0&sdk=joey&u=http%3A%2F%2F192.168.0.102%3A5173%2F&display=popup&ref=plugin&src=share_button"
+          href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fyoshuu.github.io%2F3Q-website%2F&amp;src=sdkpreparse"
         >
           <svg
+            class=""
             width="36"
             height="36"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            class=""
           >
             <path
               d="M24.574 9H11.426A2.426 2.426 0 009 11.425v13.15A2.425 2.425 0 0011.426 27h6.484l.012-6.432H16.25a.394.394 0 01-.394-.393l-.008-2.073c0-.219.176-.396.394-.396h1.668v-2.004c0-2.325 1.42-3.59 3.494-3.59h1.702c.218 0 .395.176.395.394v1.748a.394.394 0 01-.394.394h-1.045c-1.128 0-1.346.537-1.346 1.323v1.735h2.478c.236 0 .42.206.392.44l-.246 2.074a.394.394 0 01-.392.348h-2.221L20.716 27h3.858A2.425 2.425 0 0027 24.575v-13.15A2.426 2.426 0 0024.574 9z"
@@ -130,6 +138,10 @@
   </div>
 </template>
 <style scoped lang="scss">
+.calendar-box {
+  text-align: center;
+  width: 100%;
+}
 .footer_container {
   position: relative;
   padding: 30px 16px 45px;
@@ -198,6 +210,15 @@
   }
   img {
     width: 100%;
+  }
+}
+
+.form-box {
+  text-align: center;
+  @include breakpoint($xl) {
+    position: absolute;
+    top: 200px;
+    left: 50px;
   }
 }
 </style>

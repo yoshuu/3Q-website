@@ -1,23 +1,11 @@
 <script setup>
 // 陳情案件
 import { GET } from "@/api/api.js";
-import { ref } from "vue";
 
 const respond = await GET(
   "%E9%81%B8%E6%9C%8D%E9%99%B3%E6%83%85%E6%A1%88%E4%BB%B6?maxRecords=12&view=Grid%20view"
 );
 const data = respond.data.records;
-const Youtube = (s) => {
-  if (!s) return;
-  return s.includes("youtube");
-};
-const transfer = (s) => {
-  if (s == undefined) {
-    return;
-  } else if (s.includes("youtube") == true) {
-    return s.replace("watch", "embed");
-  }
-};
 const breakLine = (s) => {
   if (s == undefined) {
     return;
@@ -25,11 +13,6 @@ const breakLine = (s) => {
     return s.split("\n");
   }
 };
-let isShow = ref(false);
-
-function isShowChange() {
-  isShow.value = !isShow.value;
-}
 </script>
 <template>
   <div
@@ -44,7 +27,7 @@ function isShowChange() {
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title" id="exampleModalFullscreen">
-            陳情案件
+            <p>選服陳情案件</p>
             <span>因涉及民眾敏感個人資料，僅呈現精選 12 則 </span>
           </h4>
           <button
@@ -54,103 +37,64 @@ function isShowChange() {
             aria-label="Close"
           ></button>
         </div>
-        <div class="modal-body p-0 petition_case">
-          <div
-            class="petition_case_content"
-            v-for="(item, index) in data"
-            :key="item.id"
-          >
-            <div class="case_container">
-              <p v-if="item.fields.案件標題 != undefined" class="case_name">
-                {{ index + 1 }}.{{ item.fields.案件標題 }}
+        <div class="modal-body p-0">
+          <div class="charitable_activity">
+            <div class="charitable_activity_header">
+              <div>案件標題</div>
+              <div>性質</div>
+              <div>時間</div>
+              <div>陳情來源/區域</div>
+              <div>主責單位</div>
+              <div>案件內容</div>
+              <div>相關連結</div>
+            </div>
+            <div
+              class="charitable_activity_content"
+              v-for="item in data"
+              :key="item.id"
+            >
+              <div>
+                <p>
+                  {{ item.fields.案件標題 }}
+                </p>
+              </div>
+              <div>
+                <p>
+                  {{ item.fields.性質 }}
+                </p>
+              </div>
+              <div>
+                <p>
+                  {{ item.fields.時間 }}
+                </p>
+              </div>
+              <div>
+                <p>
+                  {{ item.fields?.["陳情來源／區域"] }}
+                </p>
+              </div>
+              <div>
+                <p>
+                  {{ item.fields.主責單位 }}
+                </p>
+              </div>
+              <p>
+                {{ item.fields.案件內容 }}
               </p>
-              <div class="case_info">
-                <p v-if="item.fields.性質 != undefined">
-                  性質：{{ item.fields.性質 }}
-                </p>
-                <p v-if="item.fields.時間 != undefined">
-                  時間：{{ item.fields.時間 }}
-                </p>
-                <p v-if="item.fields?.['陳情來源/區域'] != undefined">
-                  陳情來源/區域：{{ item.fields?.["陳情來源/區域"] }}
-                </p>
-                <p v-if="item.fields.時間 != undefined">
-                  主責單位：{{ item.fields.主責單位 }}
-                </p>
-              </div>
-              <div
-                v-if="item.fields.案件內容 != undefined"
-                class="case_content"
-              >
-                <p>案件內容：</p>
-                <p v-for="item in breakLine(item.fields.案件內容)">
-                  {{ item }}
-                </p>
-              </div>
-              <div v-if="item.fields.照片 != undefined" class="case_photo_list">
-                <p>照片：</p>
-                <div class="case_photo_container">
-                  <div class="four" v-if="item.fields.照片.length <= 4">
-                    <div v-for="(data, index) in item.fields.照片" :key="index">
-                      <img :src="data.url" alt="" />
-                    </div>
-                  </div>
-                  <div class="more" v-else>
-                    <div
-                      v-for="(data, index) in item.fields.照片"
-                      :key="data.id"
-                      :class="{ fourth_pic: index == 3, more_pic: index == 4 }"
-                    >
-                      <div v-if="index === 3">
-                        <img :src="data.url" alt="" />
-                        <button
-                          class="count_more"
-                          :class="{ aaa: isShow }"
-                          @click="isShowChange(data.id)"
-                        >
-                          <p>+{{ item.fields.照片.length - 4 }}</p>
-                        </button>
-                      </div>
-                      <div v-else-if="index === 4" :class="{ show: isShow }">
-                        <img :src="data.url" alt="" />
-                        <button
-                          :class="{ aaa: isShow }"
-                          class="count_more"
-                          @click="isShowChange(data.id)"
-                          v-if="item.fields.照片.length > 6"
-                        >
-                          <p>+{{ item.fields.照片.length - 5 }}</p>
-                        </button>
-                      </div>
-                      <div
-                        class="hide"
-                        v-else-if="index > 4"
-                        :class="{ show: isShow }"
-                      >
-                        <img :src="data.url" alt="" />
-                      </div>
-                      <div v-else>
-                        <img :src="data.url" alt="" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="other_link">
-                <div v-if="item.fields.相關連結1 != undefined">
-                  <p>相關連結：</p>
+              <div>
+                <div class="link_list" v-if="item.fields.相關連結1">
                   <div>
-                    1.<a target="_blank" :href="item.fields.相關連結1">
+                    <a target="_blank" :href="item.fields.相關連結1">
                       {{ item.fields.相關連結1 }}
                     </a>
                   </div>
-                  <div v-if="item.fields.相關連結2 != undefined">
-                    2.<a target="_blank" :href="item.fields.相關連結2">
+                  <div v-if="item.fields.相關連結2">
+                    <a target="_blank" :href="item.fields.相關連結2">
                       {{ item.fields.相關連結2 }}
                     </a>
                   </div>
-                  <div v-if="item.fields.相關連結3 != undefined">
-                    3.<a target="_blank" :href="item.fields.相關連結3">
+                  <div v-if="item.fields.相關連結3">
+                    <a target="_blank" :href="item.fields.相關連結3">
                       {{ item.fields.相關連結3 }}
                     </a>
                   </div>
@@ -171,10 +115,17 @@ function isShowChange() {
     font-weight: bold;
     font-size: 24px;
     color: white;
+    p {
+      @include breakpoint($xl) {
+        display: inline-block;
+      }
+    }
     span {
-      margin-left: 16px;
       vertical-align: middle;
       font-size: 12px;
+      @include breakpoint($xl) {
+        margin-left: 16px;
+      }
     }
     @include breakpoint($xl) {
       font-size: 36px;
@@ -201,131 +152,35 @@ function isShowChange() {
     box-shadow: unset;
   }
 }
-.petition_case_content {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  padding: 16px;
-  border-bottom: 20px solid #a63f24;
+.charitable_activity {
+  background-color: $primary;
+  overflow: scroll;
+  width: 1920px;
   @include breakpoint($xl) {
-    padding: 50px 54px;
+    padding-left: 30px;
   }
-  iframe {
-    aspect-ratio: 2.02/1;
-    @include breakpoint($xl) {
-      width: 428px;
-    }
-  }
-}
-.case_container {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  .case_name,
-  .case_content p:nth-child(1),
-  .other_link p:nth-child(1),
-  .case_photo_list p {
-    font-size: 17px;
-    font-weight: 700;
-  }
-  .case_info {
-    font-size: 13px;
-    color: #828282;
-    font-weight: 400;
-  }
-  .case_content {
-    font-size: 17px;
-    font-weight: 400;
-    line-height: 30.6px;
-  }
-}
-.case_photo_list {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  width: 100%;
-  img {
-    display: block;
-    width: 100%;
-    aspect-ratio: 16/9;
-    object-fit: cover;
-  }
-  .less_than_two {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    width: 100%;
-  }
-  .four,
-  .more {
-    position: relative;
+  > div {
     display: grid;
-
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    overflow: hidden;
+    grid-template-columns: (15% 5% 5% 10% 5% 1fr 10%);
     width: 100%;
-    gap: 8px;
-    @include breakpoint($xl) {
-      grid-template-columns: repeat(5, 1fr);
-      grid-template-rows: unset;
-      overflow: auto;
-      gap: 16px;
+    gap: 16px;
+    padding: 14.5px 16px;
+    font-size: 17px;
+    background-color: white;
+    border-bottom: 1px solid #e0e0e0;
+    a {
+      word-break: break-all;
+      color: $primary;
     }
   }
-}
-.other_link {
-  a {
-    color: $primary;
-  }
-}
-.fourth_pic,
-.more_pic {
-  position: relative;
-  .count_more {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    width: 100%;
-    height: 100%;
+  > div:nth-child(1) {
+    background-color: $primary;
     color: white;
-    top: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-
-    p {
-      font-size: 20px;
-    }
   }
 }
-
-.aaa {
-  opacity: 0;
-}
-.fourth_pic .count_more {
-  @include breakpoint($xl) {
-    display: none;
+.link_list {
+  a {
+    display: block;
   }
-}
-.more_pic {
-  div {
-    display: none;
-    @include breakpoint($xl) {
-      display: block;
-    }
-  }
-  .count_more {
-    display: none;
-    @include breakpoint($xl) {
-      display: flex;
-    }
-  }
-}
-
-.hide {
-  display: none;
-}
-.show {
-  display: block !important;
 }
 </style>
