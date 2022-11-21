@@ -57,8 +57,11 @@ const isShow = ref(false);
               >
                 <div v-if="index == 3">
                   <img :src="data.url" alt="" />
-                  <button class="count_more" @click="isShow = !isShow">
+                  <button
+                    class="count_more"
+                    @click="isShow = !isShow"
                     :class="{ opacity: isShow }"
+                  >
                     <p>+{{ item.fields.照片.length - 4 }}</p>
                   </button>
                 </div>
