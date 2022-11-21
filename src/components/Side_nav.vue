@@ -14,11 +14,11 @@ const respond = await GET(
 );
 
 const data = respond.data.records;
-const data1 = ref(data[7].fields.資料數量);
-const data2 = ref(data[8].fields.資料數量);
-const data3 = ref(data[9].fields.資料數量);
-const data4 = ref(data[10].fields.資料數量);
-const data5 = ref(data[11].fields.資料數量);
+const data1 = ref(Number(data[7].fields.資料數量));
+const data2 = ref(Number(data[8].fields.資料數量));
+const data3 = ref(Number(data[9].fields.資料數量));
+const data4 = ref(Number(data[10].fields.資料數量));
+const data5 = ref(Number(data[11].fields.資料數量));
 
 const currentTab = ref("MainProposal");
 

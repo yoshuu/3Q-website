@@ -12,8 +12,8 @@ const respond = await GET(
 
 const data = respond.data.records;
 
-const data1 = data[6].fields.資料數量;
-const data2 = data[12].fields.資料數量;
+const data1 = ref(Number(data[6].fields.資料數量));
+const data2 = ref(Number(data[12].fields.資料數量));
 
 const currentTab = ref("NationalEvent");
 

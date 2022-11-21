@@ -15,11 +15,11 @@ const respond = await GET(
 
 const data = respond.data.records;
 
-const data1 = data[4].fields.資料數量;
-const data2 = data[1].fields.資料數量;
-const data3 = data[2].fields.資料數量;
-const data4 = data[3].fields.資料數量;
-const data5 = data[13].fields.資料數量;
+const data1 = ref(Number(data[4].fields.資料數量));
+const data2 = ref(Number(data[1].fields.資料數量));
+const data3 = ref(Number(data[2].fields.資料數量));
+const data4 = ref(Number(data[3].fields.資料數量));
+const data5 = ref(Number(data[13].fields.資料數量));
 
 const currentTab = ref("Representative");
 

@@ -160,7 +160,7 @@ const value3 = () => {
       <div>
         <p>
           <countTo
-            :separator="false"
+            :separator="null"
             :startVal="0"
             :endVal="data1"
             :duration="4000"
@@ -433,7 +433,7 @@ const value3 = () => {
       <div>
         <p>
           <count-to
-            :separator="false"
+            :separator="null"
             :startVal="0"
             :endVal="4946"
             :duration="4000"
@@ -444,7 +444,7 @@ const value3 = () => {
       <div>
         <p>
           <count-to
-            :separator="false"
+            :separator="null"
             :startVal="0"
             :endVal="1846"
             :duration="4000"
