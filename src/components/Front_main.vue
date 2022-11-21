@@ -12,20 +12,20 @@ const respond = await GET(
   "/%E5%90%84%E8%B3%87%E6%96%99%E6%95%B8%E9%87%8F?maxRecords=100&view=Grid%20view"
 );
 const data = respond.data.records;
-const data1 = ref(data[0].fields.資料數量);
+const data1 = ref(Number(data[0].fields.資料數量));
 // const data2 = ref(data[1].fields.資料數量);
 // const data3 = ref(data[2].fields.資料數量);
 // const data4 = ref(data[3].fields.資料數量);
 // const data5 = ref(data[4].fields.資料數量);
-const data6 = ref(data[5].fields.資料數量);
-const data7 = ref(data[6].fields.資料數量);
-const data8 = ref(data[7].fields.資料數量);
-const data9 = ref(data[8].fields.資料數量);
-const data10 = ref(data[9].fields.資料數量);
-const data11 = ref(data[10].fields.資料數量);
-const data12 = ref(data[11].fields.資料數量);
+const data6 = ref(Number(data[5].fields.資料數量));
+const data7 = ref(Number(data[6].fields.資料數量));
+const data8 = ref(Number(data[7].fields.資料數量));
+const data9 = ref(Number(data[8].fields.資料數量));
+const data10 = ref(Number(data[9].fields.資料數量));
+const data11 = ref(Number(data[10].fields.資料數量));
+const data12 = ref(Number(data[11].fields.資料數量));
 // const data13 = ref(data[12].fields.資料數量);
-const data14 = ref(data[13].fields.資料數量);
+const data14 = ref(Number(data[13].fields.資料數量));
 
 const flag = ref(false);
 const value = () => {
