@@ -12,20 +12,20 @@ const respond = await GET(
   "/%E5%90%84%E8%B3%87%E6%96%99%E6%95%B8%E9%87%8F?maxRecords=100&view=Grid%20view"
 );
 const data = respond.data.records;
-const data1 = ref(data[0].fields.資料數量);
+const data1 = ref(Number(data[0].fields.資料數量));
 // const data2 = ref(data[1].fields.資料數量);
 // const data3 = ref(data[2].fields.資料數量);
 // const data4 = ref(data[3].fields.資料數量);
 // const data5 = ref(data[4].fields.資料數量);
-const data6 = ref(data[5].fields.資料數量);
-const data7 = ref(data[6].fields.資料數量);
-const data8 = ref(data[7].fields.資料數量);
-const data9 = ref(data[8].fields.資料數量);
-const data10 = ref(data[9].fields.資料數量);
-const data11 = ref(data[10].fields.資料數量);
-const data12 = ref(data[11].fields.資料數量);
+const data6 = ref(Number(data[5].fields.資料數量));
+const data7 = ref(Number(data[6].fields.資料數量));
+const data8 = ref(Number(data[7].fields.資料數量));
+const data9 = ref(Number(data[8].fields.資料數量));
+const data10 = ref(Number(data[9].fields.資料數量));
+const data11 = ref(Number(data[10].fields.資料數量));
+const data12 = ref(Number(data[11].fields.資料數量));
 // const data13 = ref(data[12].fields.資料數量);
-// const data14 = ref(data[13].fields.資料數量);
+const data14 = ref(Number(data[13].fields.資料數量));
 
 const flag = ref(false);
 const value = () => {
@@ -35,6 +35,11 @@ const value = () => {
 const flag2 = ref(false);
 const value2 = () => {
   flag2.value = true;
+};
+
+const flag3 = ref(false);
+const value3 = () => {
+  flag3.value = true;
 };
 </script>
 <template>
@@ -49,7 +54,7 @@ const value2 = () => {
     <PetitionCase />
   </Suspense>
   <Suspense>
-    <PressConference />
+    <PressConference :flag3="flag3" />
   </Suspense>
 
   <div class="card_container">
@@ -155,7 +160,7 @@ const value2 = () => {
       <div>
         <p>
           <countTo
-            :separator="false"
+            :separator="null"
             :startVal="0"
             :endVal="data1"
             :duration="4000"
@@ -226,7 +231,7 @@ const value2 = () => {
     >
       <div>
         <p>
-          <countTo :startVal="0" :endVal="data12" :duration="4000"></countTo>
+          <countTo :startVal="0" :endVal="data14" :duration="4000"></countTo>
         </p>
         <h2>會勘及地方建設</h2>
       </div>
@@ -286,7 +291,12 @@ const value2 = () => {
         </svg>
       </div>
     </div>
-    <div class="test4" data-bs-toggle="modal" data-bs-target="#PressConference">
+    <div
+      class="test4"
+      @click="value3"
+      data-bs-toggle="modal"
+      data-bs-target="#PressConference"
+    >
       <div>
         <p>
           <countTo :startVal="0" :endVal="data7" :duration="4000"></countTo>
@@ -423,7 +433,7 @@ const value2 = () => {
       <div>
         <p>
           <count-to
-            :separator="false"
+            :separator="null"
             :startVal="0"
             :endVal="4946"
             :duration="4000"
@@ -434,7 +444,7 @@ const value2 = () => {
       <div>
         <p>
           <count-to
-            :separator="false"
+            :separator="null"
             :startVal="0"
             :endVal="1846"
             :duration="4000"
