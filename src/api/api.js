@@ -4,7 +4,7 @@ const data = axios.create({
   baseURL: "https://api.airtable.com/v0/app4NIZthoTlA3i05",
   headers: {
     Authorization: "Bearer keyZZohwE7qoW0mev",
-    Cookie: "brw=brw6vXnpZDnXonY3G",
+    // Cookie: "brw=brw6vXnpZDnXonY3G",
   },
 });
 
