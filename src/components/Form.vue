@@ -5,7 +5,7 @@
     frameborder="0"
     marginheight="0"
     marginwidth="0"
-    width="350px"
+    width="360px"
     height="400px"
     scrolling="auto"
   >
