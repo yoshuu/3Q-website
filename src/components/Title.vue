@@ -16,7 +16,7 @@ defineProps(["flag"]);
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title" id="exampleModalFullscreen">
-            立院成果
+            <p>立院成果</p>
             <span
               >想知道更多問政成果嗎？歡迎至
               <a target="_blank" href="https://npl.ly.gov.tw/do/www/homePage"
@@ -50,10 +50,18 @@ defineProps(["flag"]);
     font-weight: 900;
     font-size: 24px;
     color: white;
+    p {
+      @include breakpoint($xl) {
+        display: inline-block;
+      }
+    }
     span {
-      margin-left: 16px;
       vertical-align: middle;
       font-size: 12px;
+
+      @include breakpoint($xl) {
+        margin-left: 16px;
+      }
     }
     a {
       text-decoration: underline;
