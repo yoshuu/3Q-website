@@ -165,15 +165,15 @@
     }
 
     > div {
-      flex-basis: 100%;
+      flex-basis: calc(50% - 10px);
       @include breakpoint($xl) {
-        flex-basis: calc(50% - 10px);
       }
     }
   }
 }
 .community_list {
   display: flex;
+  margin-top: 20px;
   gap: 36px;
   color: $primary;
 }

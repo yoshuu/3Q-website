@@ -260,7 +260,13 @@ const tabs = {
     display: block;
   }
   a {
+    display: flex;
+    align-items: center;
+    height: 70px;
     width: 100%;
+    @include breakpoint($xl) {
+      height: auto;
+    }
   }
 }
 .Side_nav_box {
@@ -279,7 +285,7 @@ const tabs = {
 
 .collapse:not(.show) {
   display: flex;
-  height: 54px;
+  height: 70px;
   overflow: hidden;
   @include breakpoint($xl) {
     height: 100%;
@@ -287,7 +293,7 @@ const tabs = {
   }
 }
 .collapsing {
-  height: 54px;
+  height: 70px;
   overflow: hidden;
   @include breakpoint($xl) {
     height: 100%;
@@ -296,10 +302,13 @@ const tabs = {
 
 .arrow_box {
   position: absolute;
-  top: 0;
   width: 100%;
+  height: 70px;
+  line-height: 70px;
   text-align: end;
-  padding: 16px 16px 16px 0;
   color: white;
+  i {
+    padding: 16px;
+  }
 }
 </style>
