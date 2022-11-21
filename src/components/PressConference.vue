@@ -44,14 +44,14 @@ const tabs = {
         </div>
         <div class="modal-body p-0">
           <div class="Side_nav_box">
-            <nav class="navbar-expand-lg side_nav">
-              <div class="side_nav-active">
+            <nav class="navbar-expand-xl side_nav">
+              <div class="collapse link_container" id="navbarText">
                 <a
                   href="##"
                   :class="{ active: currentTab === 'NationalEvent' }"
                   @click="currentTab = 'NationalEvent'"
-                  ><span>全國性活動</span>
-                  <span
+                  ><span>全國性活動</span
+                  ><span
                     ><countTo
                       v-if="flag3"
                       :startVal="0"
@@ -60,24 +60,11 @@ const tabs = {
                     ></countTo
                   ></span>
                 </a>
-                <button
-                  class="navbar-toggler"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#navbarText"
-                  aria-controls="navbarText"
-                  aria-expanded="false"
-                  aria-label="Toggle navigation"
-                >
-                  <i class="fa-solid fa-caret-down"></i>
-                </button>
-              </div>
-              <div class="collapse" id="navbarText">
                 <a
                   href="##"
                   :class="{ active: currentTab === 'RepresentativeActivities' }"
                   @click="currentTab = 'RepresentativeActivities'"
-                  ><span>代表性全國活動</span
+                  ><span>代表性全國活動1</span
                   ><span
                     ><countTo
                       v-if="flag3"
@@ -87,6 +74,18 @@ const tabs = {
                     ></countTo
                   ></span>
                 </a>
+
+                <div
+                  class="navbar-toggler arrow_box"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#navbarText"
+                  aria-controls="navbarText"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
+                  <i class="fa-solid fa-caret-down"></i>
+                </div>
               </div>
             </nav>
             <Suspense>
@@ -131,29 +130,25 @@ const tabs = {
     box-shadow: unset;
   }
 }
-
 .side_nav {
+  display: flex;
+  width: 100%;
   background-color: $primary;
-  @include breakpoint($lg) {
+  @include breakpoint($xl) {
     max-width: 300px;
     height: 100%;
-    width: 30%;
   }
 }
 .side_nav a,
 .side_nav-active button {
   color: white;
-  &:focus {
-    color: $primary;
-    background: white;
-  }
 }
 .side_nav a {
   display: block;
   padding: 17.5px 16px;
   font-size: 17px;
   font-weight: bold;
-  @include breakpoint($lg) {
+  @include breakpoint($xl) {
     display: flex;
     justify-content: space-between;
     font-size: 24px;
@@ -161,37 +156,67 @@ const tabs = {
   }
 }
 .side_nav div + div,
-.side_nav a + a {
-  border-top: 1px solid white;
+.side_nav a,
+.side_nav button {
+  border-bottom: 1px solid white;
 }
-.side_nav-active {
-  display: flex;
-  justify-content: space-between;
-  a {
-    flex-grow: 1;
-  }
-  i {
-    padding: 16px;
-  }
+.side_nav button {
+  width: 30px;
+  height: 54px;
 }
 .side_nav a span + span {
   padding-left: 8px;
 }
-.collapse {
-  @include breakpoint($lg) {
-    display: block !important;
+.link_container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  @include breakpoint($xl) {
+    display: block;
+  }
+  a {
+    width: 100%;
   }
 }
-
 .Side_nav_box {
   height: 100%;
-  @include breakpoint($lg) {
+  @include breakpoint($xl) {
     display: flex;
   }
 }
-
 .side_nav .active {
-  color: $primary;
-  background: white;
+  order: -1;
+  @include breakpoint($xl) {
+    color: $primary;
+    background: white;
+  }
+}
+
+.collapse:not(.show) {
+  display: flex;
+  height: 54px;
+  overflow: hidden;
+  @include breakpoint($xl) {
+    height: 100%;
+    display: block;
+  }
+}
+.collapsing {
+  height: 54px;
+  overflow: hidden;
+  @include breakpoint($xl) {
+    height: 100%;
+  }
+}
+
+.arrow_box {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  text-align: end;
+  padding: 16px 16px 16px 0;
+  color: white;
 }
 </style>
