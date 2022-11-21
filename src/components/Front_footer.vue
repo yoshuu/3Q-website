@@ -218,7 +218,7 @@ import FormVue from "./Form.vue";
   @include breakpoint($xl) {
     position: absolute;
     top: 200px;
-    left: 50px;
+    left: 150px;
   }
 }
 </style>
