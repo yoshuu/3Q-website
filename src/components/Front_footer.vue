@@ -90,8 +90,7 @@
         <p>分享至</p>
         <a
           target="_blank"
-          href="https://social-plugins.line.me/lineit/share?url=http://192.168.0.102:5173/
-"
+          href="https://social-plugins.line.me/lineit/share?url=https://yoshuu.github.io/3Q-website/"
         >
           <svg
             width="36"
@@ -107,9 +106,10 @@
         </a>
         <a
           target="_blank"
-          href="https://www.facebook.com/sharer/sharer.php?kid_directed_site=0&sdk=joey&u=http%3A%2F%2F192.168.0.102%3A5173%2F&display=popup&ref=plugin&src=share_button"
+          href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fyoshuu.github.io%2F3Q-website%2F&amp;src=sdkpreparse"
         >
           <svg
+            class=""
             width="36"
             height="36"
             fill="none"
