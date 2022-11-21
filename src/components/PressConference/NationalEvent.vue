@@ -17,17 +17,17 @@ const data = respond.data.records;
     </div>
     <div class="nationalEvent_content" v-for="item in data" :key="item.id">
       <div>
-        <p class="">
+        <p>
           {{ item.fields.日期 }}
         </p>
       </div>
       <div>
-        <p class="">
+        <p>
           {{ item.fields.性質 }}
         </p>
       </div>
       <div>
-        <p class="">
+        <p>
           {{ item.fields.名稱 }}
         </p>
       </div>
