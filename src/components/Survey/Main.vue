@@ -25,7 +25,10 @@ const transfer = (s) => {
     return s.replace("watch", "embed");
   }
 };
-const isShow = ref(true);
+const isShow = ref(false);
+function isShowChange() {
+  isShow.value = !isShow.value;
+}
 const input = reactive({
   性質: "性質",
 });
@@ -48,25 +51,26 @@ const filterData = computed(() => {
 </script>
 <template>
   <div class="main">
-    <select v-model="input.性質">
-      <option value="性質" disabled>性質</option>
-      <option value="性質">全部</option>
-      <option value="會勘">會勘</option>
-      <option value="協調會">協調會</option>
-      <option value="霧峰">爭取地方發展</option>
-      <option value="沙鹿">公聽會</option>
-    </select>
-    <select v-model="input2.區域">
-      <option value="區域" disabled>區域</option>
-      <option value="區域">全部</option>
-      <option value="霧峰">霧峰</option>
-      <option value="霧峰">霧峰</option>
-      <option value="沙鹿">沙鹿</option>
-      <option value="大肚">大肚</option>
-      <option value="烏日">烏日</option>
-      <option value="龍井">龍井</option>
-      <option value="其他">其他</option>
-    </select>
+    <div class="select_list">
+      <select v-model="input.性質" class="select_box">
+        <option value="性質" disabled>性質</option>
+        <option value="性質">全部</option>
+        <option value="會勘">會勘</option>
+        <option value="協調會">協調會</option>
+        <option value="爭取地方發展">爭取地方發展</option>
+        <option value="公聽會">公聽會</option>
+      </select>
+      <select v-model="input2.區域" class="select_box">
+        <option value="區域" disabled>區域</option>
+        <option value="區域">全部</option>
+        <option value="霧峰">霧峰</option>
+        <option value="沙鹿">沙鹿</option>
+        <option value="大肚">大肚</option>
+        <option value="烏日">烏日</option>
+        <option value="龍井">龍井</option>
+        <option value="其他">其他</option>
+      </select>
+    </div>
     <div
       class="representative_content"
       v-for="item in filterData"
@@ -78,8 +82,8 @@ const filterData = computed(() => {
         </p>
         <div class="case_info">
           <p class="sort">
-            <span>{{ item.fields.區域 }}</span>
             <span>{{ item.fields.性質 }}</span>
+            <span>{{ item.fields.區域 }}</span>
           </p>
           <p>辦理日期：{{ item.fields.辦理日期 }}</p>
           <p>參與單位：{{ item.fields.參與單位 }}</p>
@@ -90,19 +94,52 @@ const filterData = computed(() => {
             {{ item }}
           </p>
         </div>
-        <div v-if="item.fields.結論與照片 != undefined" class="case_photo_list">
-          <p>結論與照片：</p>
+        <div v-if="item.fields.當天照片 != undefined" class="case_photo_list">
+          <p>當天照片：</p>
           <div class="case_photo_container">
-            <div class="four" v-if="item.fields.結論與照片.length <= 4">
-              <div v-for="data in item.fields.結論與照片">
+            <div class="four" v-if="item.fields.當天照片.length <= 4">
+              <div v-for="(data, index) in item.fields.當天照片" :key="index">
                 <img :src="data.url" alt="" />
               </div>
             </div>
-            <div :class="{ show: isShow }" class="more" v-else>
-              <div v-for="data in item.fields.結論與照片">
-                <img :src="data.url" alt="" />
+            <div class="more" v-else>
+              <div
+                v-for="(data, index) in item.fields.當天照片"
+                :key="data.id"
+                :class="{ fourth_pic: index == 3, more_pic: index == 4 }"
+              >
+                <div v-if="index === 3">
+                  <img :src="data.url" alt="" />
+                  <button
+                    class="count_more"
+                    :class="{ opacity: isShow }"
+                    @click="isShowChange(data.id)"
+                  >
+                    <p>+{{ item.fields.當天照片.length - 4 }}</p>
+                  </button>
+                </div>
+                <div v-else-if="index === 4" :class="{ show: isShow }">
+                  <img :src="data.url" alt="" />
+                  <button
+                    :class="{ opacity: isShow }"
+                    class="count_more"
+                    @click="isShowChange(data.id)"
+                    v-if="item.fields.當天照片.length > 6"
+                  >
+                    <p>+{{ item.fields.當天照片.length - 5 }}</p>
+                  </button>
+                </div>
+                <div
+                  class="hide"
+                  v-else-if="index > 4"
+                  :class="{ show: isShow }"
+                >
+                  <img :src="data.url" alt="" />
+                </div>
+                <div v-else>
+                  <img :src="data.url" alt="" />
+                </div>
               </div>
-              <!-- <button class="more_pic" @click="isShow = ! isShow"></button> -->
             </div>
           </div>
         </div>
@@ -182,60 +219,101 @@ const filterData = computed(() => {
     }
   }
 }
-.other_link {
-  order: 2;
-  a {
-    color: $primary;
-  }
-}
 .case_photo_list {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 8px;
+  width: 100%;
   img {
     display: block;
     width: 100%;
     aspect-ratio: 16/9;
     object-fit: cover;
   }
-  .less_than_two {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    width: 100%;
-  }
   .four,
   .more {
     position: relative;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    overflow: hidden;
+    width: 100%;
     gap: 8px;
     @include breakpoint($xl) {
-      flex-wrap: nowrap;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: unset;
       overflow: auto;
       gap: 16px;
     }
-    div {
-      width: calc(50% - 4px);
-      @include breakpoint($xl) {
-        width: calc(20% - 12.8px);
-      }
+  }
+}
+.fourth_pic,
+.more_pic {
+  position: relative;
+  .count_more {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    color: white;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    p {
+      font-size: 20px;
     }
   }
 }
 
-// .show {
-//   height: 54.5%;
-//   overflow: auto;
-//   @include breakpoint($xl){
-//     height:100%;
+.opacity {
+  opacity: 0;
+}
+.fourth_pic .count_more {
+  @include breakpoint($xl) {
+    display: none;
+  }
+}
+.more_pic {
+  div {
+    display: none;
+    @include breakpoint($xl) {
+      display: block;
+    }
+  }
+  .count_more {
+    display: none;
+    @include breakpoint($xl) {
+      display: flex;
+    }
+  }
+}
 
-//   }
-// }
-// .more_pic{
-//   padding: 30px;
-//   position: absolute;
-//   top: 0;
-// }
+.hide {
+  display: none;
+}
+.show {
+  display: block !important;
+}
+.select_list {
+  display: flex;
+  padding: 12px 16px;
+  gap: 10px;
+  position: sticky;
+  @include breakpoint($xl) {
+    gap: 16px;
+    padding: 18px 30px;
+  }
+
+  .select_box {
+    width: calc(50% - 5px);
+    font-size: 17px;
+    padding: 9.5px 8px;
+    border: 1px solid $primary;
+    @include breakpoint($xl) {
+      width: 102px;
+    }
+  }
+}
 </style>
