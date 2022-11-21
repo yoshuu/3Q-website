@@ -64,7 +64,7 @@ const tabs = {
                   ><span>代表性地方建設</span
                   ><span
                     ><countTo
-                      v-if="flag"
+                      v-if="flag2"
                       :startVal="0"
                       :endVal="data5"
                       :duration="3000"
@@ -86,7 +86,7 @@ const tabs = {
                   <span>會勘及地方建設 <br />(第一期)</span>
                   <span
                     ><countTo
-                      v-if="flag"
+                      v-if="flag2"
                       :startVal="0"
                       :endVal="data4"
                       :duration="3000"
@@ -109,7 +109,7 @@ const tabs = {
                     (第二期)</span
                   ><span
                     ><countTo
-                      v-if="flag"
+                      v-if="flag2"
                       :startVal="0"
                       :endVal="data3"
                       :duration="3000"
@@ -130,7 +130,7 @@ const tabs = {
                   ><span>會勘及地方建設 <br />(第三期)</span
                   ><span
                     ><countTo
-                      v-if="flag"
+                      v-if="flag2"
                       :startVal="0"
                       :endVal="data2"
                       :duration="3000"
@@ -151,7 +151,7 @@ const tabs = {
                   ><span>總覽</span
                   ><span>
                     <countTo
-                      v-if="flag"
+                      v-if="flag2"
                       :startVal="0"
                       :endVal="data1"
                       :duration="3000"

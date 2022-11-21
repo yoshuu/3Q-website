@@ -53,7 +53,7 @@ const tabs = {
                   ><span>全國性活動</span>
                   <span
                     ><countTo
-                      v-if="flag2"
+                      v-if="flag3"
                       :startVal="0"
                       :endVal="data1"
                       :duration="3000"
@@ -80,7 +80,7 @@ const tabs = {
                   ><span>代表性全國活動</span
                   ><span
                     ><countTo
-                      v-if="flag2"
+                      v-if="flag3"
                       :startVal="0"
                       :endVal="data2"
                       :duration="3000"

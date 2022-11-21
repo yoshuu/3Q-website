@@ -25,7 +25,7 @@ const data10 = ref(data[9].fields.資料數量);
 const data11 = ref(data[10].fields.資料數量);
 const data12 = ref(data[11].fields.資料數量);
 // const data13 = ref(data[12].fields.資料數量);
-// const data14 = ref(data[13].fields.資料數量);
+const data14 = ref(data[13].fields.資料數量);
 
 const flag = ref(false);
 const value = () => {
@@ -35,6 +35,11 @@ const value = () => {
 const flag2 = ref(false);
 const value2 = () => {
   flag2.value = true;
+};
+
+const flag3 = ref(false);
+const value3 = () => {
+  flag3.value = true;
 };
 </script>
 <template>
@@ -49,7 +54,7 @@ const value2 = () => {
     <PetitionCase />
   </Suspense>
   <Suspense>
-    <PressConference />
+    <PressConference :flag3="flag3" />
   </Suspense>
 
   <div class="card_container">
@@ -226,7 +231,7 @@ const value2 = () => {
     >
       <div>
         <p>
-          <countTo :startVal="0" :endVal="data12" :duration="4000"></countTo>
+          <countTo :startVal="0" :endVal="data14" :duration="4000"></countTo>
         </p>
         <h2>會勘及地方建設</h2>
       </div>
@@ -286,7 +291,12 @@ const value2 = () => {
         </svg>
       </div>
     </div>
-    <div class="test4" data-bs-toggle="modal" data-bs-target="#PressConference">
+    <div
+      class="test4"
+      @click="value3"
+      data-bs-toggle="modal"
+      data-bs-target="#PressConference"
+    >
       <div>
         <p>
           <countTo :startVal="0" :endVal="data7" :duration="4000"></countTo>
