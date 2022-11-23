@@ -5,7 +5,9 @@ import FormVue from "./Form.vue";
 <template>
   <div class="footer_container">
     <div class="calendar-box">
-      <Calendar />
+      <Suspense>
+        <Calendar />
+      </Suspense>
     </div>
     <div class="form-box">
       <FormVue />
