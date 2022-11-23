@@ -2,6 +2,7 @@
 import { Qalendar } from "qalendar";
 import { GET } from "@/api/api.js";
 import { ref } from "vue";
+
 const respond = await GET(
   "/%F0%9F%93%86%20Schedule?maxRecords=3&view=Grid%20view"
 );

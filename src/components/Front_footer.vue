@@ -1,6 +1,17 @@
-<script setup></script>
+<script setup>
+import Calendar from "./Calendar.vue";
+import FormVue from "./Form.vue";
+</script>
 <template>
   <div class="footer_container">
+    <div class="calendar-box">
+      <Suspense>
+        <Calendar />
+      </Suspense>
+    </div>
+    <div class="form-box">
+      <FormVue />
+    </div>
     <div class="article_container">
       <div class="footer_slogan">
         <h3 class="footer_slogan_title">盡忠職守，問心無愧</h3>
@@ -129,6 +140,10 @@
   </div>
 </template>
 <style scoped lang="scss">
+.calendar-box {
+  text-align: center;
+  width: 100%;
+}
 .footer_container {
   position: relative;
   padding: 30px 16px 45px;
@@ -197,6 +212,15 @@
   }
   img {
     width: 100%;
+  }
+}
+
+.form-box {
+  text-align: center;
+  @include breakpoint($xl) {
+    position: absolute;
+    top: 200px;
+    left: 150px;
   }
 }
 </style>

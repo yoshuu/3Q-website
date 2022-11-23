@@ -27,7 +27,7 @@ const breakLine = (s) => {
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title" id="exampleModalFullscreen">
-            <p>陳情案件</p>
+            <p>選服陳情案件</p>
             <span>因涉及民眾敏感個人資料，僅呈現精選 12 則 </span>
           </h4>
           <button

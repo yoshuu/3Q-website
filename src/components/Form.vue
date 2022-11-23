@@ -5,8 +5,8 @@
     frameborder="0"
     marginheight="0"
     marginwidth="0"
-    width="500px"
-    height="500px"
+    width="360px"
+    height="400px"
     scrolling="auto"
   >
   </iframe>
